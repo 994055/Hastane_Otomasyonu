@@ -1,0 +1,103 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.randevuList
+@{
+    ViewBag.Title = "Randevularim";
+    Layout = "~/Views/Shared/_LayoutHasta.cshtml";
+}
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Randevularım</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Hasta")</li>
+        <li class="active">Randevularım</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Ad
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.adsyad)</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Tarih
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    string tarih = hasta.tarih.ToString();
+                    string[] dizi = tarih.Split(' ');
+                    string tut = dizi[0];
+                    <a href="#" class="list-group-item list-group-item-action">@tut</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Saat
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {                    
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.saat1.saatzaman)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Randevu Detay
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    @Html.ActionLink("Detay", "RandevularimDetay", "Hasta", new { randevuID = hasta.randevuid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+        <div class="col-md-3">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Randevu İptal
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    if (hasta.tarih > DateTime.Today)
+                    {
+                        @Html.ActionLink("İptal et", "RandevularimIptal", "Hasta", new { randevuID = hasta.randevuid }, new { @class = "list-group-item list-group-item-action list-group-item-danger active", onclick = "return confirm('Randevunuzu iptal etmek istediğinize emin misiniz? ')" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Geçmiş randevu", "Randevularim", "Hasta", new { randevuID = hasta.randevuid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

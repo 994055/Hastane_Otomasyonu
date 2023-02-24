@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHasta.cshtml";
+}
+
+
+
+<div id="myCarousel" class="carousel slide">
+
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" style="background-image:url('/Seyehat/img/slide/nissan.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Hastane Randevu</h2>
+                @Html.ActionLink("Hakkımızda", "About", "Hasta", new { area = "" }, new { @class = "button" })
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="        background-image: url('/Tasarim/img/slide/fahrettinkoca.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Bakan Koca'dan yeni açıklamalar'</h2>
+                <a href="https://www.saglik.gov.tr" class="button" target="_blank">DAHA FAZLA</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="        background-image: url('/Tasarim/img/slide/covid.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Güncel Covid-19 bilgileri</h2>
+                <a href="https://covid19.saglik.gov.tr" class="button" target="_blank">DAHA FAZLA</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="        background-image: url('/Tasarim/img/slide/sağlık.jpg');"></div>
+            <div class="carousel-caption">
+                <h2>Sağlık Bakanlığı</h2>
+                <a href="https://www.saglik.gov.tr" class="button" target="_blank">DAHA FAZLA</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+    </a>
+</div>
+
+
+<div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+        <h2 class="display-5">Hastane Randevu</h2>
+       
+    </div>
+    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0; color:#000000">
+        
+      <br />
+        <h3>Hastane randevusu alabilmek için önce kayıt olmalısınız.</h3>
+    </div>
+</div>
+<br />
+<br />
+
+
+<div class="section">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="block-icon">
+                    <i class="fa-solid fa-syringe"></i>
+                </div>
+
+                <div class="block-body">
+                    <h2>Aşı</h2>
+                    <div class="line-subtitle"></div>
+                    <p>Ülkemizde Covid-19 vaka sayılarımızın düşmesi için lütfen aşılarımızı olalım.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="block-icon">
+                    <i class="fa-solid fa-head-side-mask"></i>
+                </div>
+
+                <div class="block-body">
+                    <h2>Maske ve Mesafe</h2>
+                    <div class="line-subtitle"></div>
+                    <p>Lütfen sosyal mesafeye uyalım ve maskelerimizi takalım</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="block-icon">
+                    <i class="fa fa-venus"></i>
+                </div>
+
+                <div class="block-body">
+                    <h2>Meme Kanseri</h2>
+                    <div class="line-subtitle"></div>
+                    <p>Meme kanserinde erken teşhis çok önemlidir. Lütfen en kısa zamanda doktorunuzdan randevu talep ediniz.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section-colored home">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-9 col-sm-8">
+                <h2>Randevu almada sorun yaşıyorsanız</h2>
+            </div>
+            <div class="col-md-3 col-sm-4">
+                @Html.ActionLink("Bizimle İletişime Geçin", "Contact", "Home", new { @class = "btn btn-danger btn-lg" })
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="section-colored">
+
+    <div class="container">
+        <h3 class="section-title text-center">T.C. Sağlık Bakanlığı</h3>
+
+        <div class="container clients">
+
+            <div class="row">
+
+                <div class="center-block col-sm-2 col-xs-6">
+                    <a href="https://www.saglik.gov.tr" target="_blank"><img class="img-responsive" src="~/Tasarim/img/tcsbakanligi.png" alt="sağlık"></a>
+                </div>
+
+
+            </div>
+
+    </div>
+
+</div>
+
+
+

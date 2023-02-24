@@ -1,0 +1,99 @@
+﻿@using Eczane.Models.Entity
+@model Eczane.Models.stokList
+@{
+    ViewBag.Title = "faturaDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    eczaneEntities ec = new eczaneEntities();
+}
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Anasayfa", "Eczaci")</li>
+        <li>@Html.ActionLink("Faturalar", "Faturalar", "Eczaci")</li>
+        <li class="active">/Fatura Detay</li>
+    </ol>
+
+    <table class="table table-hover">
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row">Hasta Adı</th>
+                <td>
+                    @foreach (var fatura in Model.faturaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => fatura.hasta_ad)</a>
+                    }
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row">TC</th>
+                <td>
+                    @foreach (var fatura in Model.faturaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => fatura.hasta_tc)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Ödeme Tarihi</th>
+                <td>
+                    @foreach (var fatura in Model.faturaListesi)
+                    {
+                        string tarih = fatura.fatura_traihi.ToString();
+                        var dizi = tarih.Split(' ');
+                        <a href="#" class="list-group-item list-group-item-action">@dizi[0]</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Ödenen Tutar</th>
+                <td>
+                    @foreach (var fatura in Model.faturaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => fatura.odenen_tutar) TL</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Ödeme Türü</th>
+                <td>
+                    @foreach (var fatura in Model.faturaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => fatura.hasta_odeme_turu)</a>
+                    }
+                </td>
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Satılan İlaç</th>
+                <td>
+                    @foreach (var fatura in Model.faturaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => fatura.satilanilac)</a>
+                    }
+                </td>
+
+            </tr>
+            
+
+            <tr class="table-primary">
+                <th scope="row">Faturayı Kesen</th>
+                <td>
+                    @foreach (var fatura in Model.faturaListesi)
+                    {
+                        var kisi = ec.personel.Find(fatura.faturayikesenid);
+                        <a href="#" class="list-group-item list-group-item-action">@kisi.ad @kisi.soyad</a>
+                    }
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+

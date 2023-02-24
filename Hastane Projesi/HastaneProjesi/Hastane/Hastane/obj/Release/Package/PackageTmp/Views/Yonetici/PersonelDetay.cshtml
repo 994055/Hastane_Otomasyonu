@@ -1,0 +1,77 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.doktorList
+@{
+    ViewBag.Title = "personelDetay";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Index", "Doktor")</li>
+        <li>@Html.ActionLink("Personeller", "Personeller", "Yonetici")</li>
+        <li class="active">/Personel Detay</li>
+    </ol>
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-primary">
+                <th scope="row">
+                    Adı Soyadı
+                </th>
+                <td>
+                    @foreach (var personel in Model.personelListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.ad) @Html.DisplayFor(modelItem => personel.soyad)</a>
+                    }
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row">TC</th>
+                <td>
+                    @foreach (var personel in Model.personelListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.tc)</a>
+                    }
+                </td>
+
+            </tr>
+
+            <tr class="table-primary">
+                <th scope="row">Branş</th>
+                <td>
+                    @foreach (var personel in Model.personelListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.unvan1.unvan1)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Diploma No</th>
+                <td>
+                    @foreach (var personel in Model.personelListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.diplomano)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Cinsiyet</th>
+                <td>
+                    @foreach (var personel in Model.personelListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.cinsiyet)</a>
+                    }
+                </td>
+
+            </tr>
+            
+        </tbody>
+    </table>
+
+</div>
+
+

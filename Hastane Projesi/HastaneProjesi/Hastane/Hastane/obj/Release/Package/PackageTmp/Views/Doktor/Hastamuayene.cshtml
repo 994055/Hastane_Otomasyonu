@@ -1,0 +1,199 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.randevuList
+
+@{
+    ViewBag.Title = "Hastamuayene";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+    var yatisOnaylandiMi = false;
+
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<div class="container container-int">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="col-lg-12">
+                <h1 class="page-header">Hasta Muayene</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Index", "Doktor")</li>
+        <li>@Html.ActionLink("Randevu Alan Hastalar", "HastaRandevuListele", "Doktor")</li>
+        <li class="active">/Hasta Muayene</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+        @using (Html.BeginForm("Hastamuayene", "Doktor", FormMethod.Get))
+        {
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:170px">Kaç Adet İlaç Verilecek</span>
+                </div>
+                @Html.DropDownList("kacAdet",
+                                                new List<SelectListItem> {
+                                               new SelectListItem {
+                                                  Text="1",
+                                                  Value="1",
+                                                  Selected = true
+                                               },
+                                               new SelectListItem {
+                                                  Text="2",
+                                                  Value="2",
+                                                  Selected = false
+                                               },
+                                                 new SelectListItem {
+                                                  Text="3",
+                                                  Value="3",
+                                                  Selected = false
+                                               },
+                                                   new SelectListItem {
+                                                  Text="4",
+                                                  Value="4",
+                                                  Selected = false
+                                               },
+                                                     new SelectListItem {
+                                                  Text="5",
+                                                  Value="5",
+                                                  Selected = false
+                                               },
+                                                }, "İlaç Adeti", new { @class = "form-control" })
+                @foreach (var hasta in Model.hastaListesi)
+                {
+                    if (ViewBag.yatisonay != null)
+                    {
+                        int yatisonay = Convert.ToInt32(ViewBag.yatisonay);
+                        @Html.Hidden("yatisonay", yatisonay)
+                    }
+
+                    @Html.Hidden("hastaID", hasta.hastaid)
+                    @Html.Hidden("randevuID", hasta.randevuID)
+
+                }
+
+                <input type="submit" value="Seç" />
+            </div>
+        }
+        @using (Html.BeginForm("Hastamuayene", "Doktor", FormMethod.Get))
+        {
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:170px">Yatış Ver</span>
+                </div>
+                @Html.DropDownList("yatisonay",
+                                            new List<SelectListItem> {
+                                               new SelectListItem {
+                                                  Text="Evet",
+                                                  Value="1",
+                                                  Selected = false
+                                               },
+                                               new SelectListItem {
+                                                  Text="Hayır",
+                                                  Value="2",
+                                                  Selected = true
+                                               },
+                                            }, "Yatış Onay", new { @class = "form-control", @onchange = "callChangefunc(this.value)" })
+                @foreach (var hasta in Model.hastaListesi)
+                {
+                    if (ViewBag.yatisonay != null)
+                    {
+                        int ilacadet = Convert.ToInt32(ViewBag.kacadet);
+                        @Html.Hidden("kacAdet", ilacadet)
+                    }
+
+                    @Html.Hidden("hastaID", hasta.hastaid)
+                    @Html.Hidden("randevuID", hasta.randevuID)
+
+                }
+                <input type="submit" value="Seç" />
+            </div>
+            if (ViewBag.yatisonay == 1)
+            {
+                yatisOnaylandiMi = true;
+            }
+
+        }
+
+        @using (Html.BeginForm("Hastamuayene", "Doktor", FormMethod.Post, new { id = "muayeneform" }))
+        {
+
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Hasta Adı</span>
+                </div>
+                @foreach (var hasta in Model.hastaListesi)
+                {
+                    <a href="#" class="form-control">@Html.DisplayFor(modelItem => hasta.ad) @Html.DisplayFor(modelItem => hasta.soyad)</a>
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Teşhis</span>
+                </div>
+                @Html.TextBox("teshis", "", new { @class = "form-control", @type = "text", @placeholder = "Teşhis Giriniz", @required = "", @maxlength = "50", @id = "teshis" })
+            </div>
+
+
+            {
+                int kacadet = 0;
+                if (ViewBag.kacadet != null)
+                {
+                    kacadet = Convert.ToInt32(ViewBag.kacadet);
+                }
+
+                for (int i = 1; i <= kacadet; i++)
+                {
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="width:150px">İlaç İsmi</span>
+                        </div>
+                        @Html.DropDownList("ilac" + i, Model.ilac, "---İlaç Seçiniz---", new { @class = "form-control" })
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="width:80px">İlaç Adeti</span>
+                        </div>
+                        @Html.TextBox("ilacadet" + i, " ", new { @class = "form-control", @type = "number", @placeholder = "İlaç adeti giriniz", @maxlength = "50", @required = "" })
+                    </div>
+                }
+
+            }
+            if (yatisOnaylandiMi == true)
+            {
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width:150px">Yatış Başlangıç Tarihi</span>
+                    </div>
+                    @Html.TextBox("yatisbaslangic", "", new { @class = "form-control", @type = "date", @placeholder = "Tarih Giriniz", @maxlength = "11", @id = "yatisbaslangic", @required = "" })
+                    @Html.Hidden("yatisonay", "Evet")
+                </div>
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width:150px">Yatış Bitiş Tarihi</span>
+                    </div>
+                    @Html.TextBox("yatisson", "", new { @class = "form-control", @type = "date", @placeholder = "Tarih Giriniz", @maxlength = "11", @id = "yatisson", @required = "" })
+                </div>
+                <p>@ViewBag.tariherror</p>
+            }
+
+
+            <button class="btn btn-lg btn-primary btn-block" id="btnMuayene" type="submit">Muayene İşlemini Tamamla</button>
+        }
+
+        <script>
+            $(function () {
+                $('#btnMuayene').click(function () {
+                    if ($.trim($("#yatisson").val()) != "" || $.trim($("#yatisbaslangic").val()) != "" || $.trim($("#teshis").val()) != "") {
+                        alert('Muayene işlemi başarıyla gerçekleşti.');
+                    }
+                });
+            });
+        </script>
+
+
+
+
+    </div>
+
+
+</div>

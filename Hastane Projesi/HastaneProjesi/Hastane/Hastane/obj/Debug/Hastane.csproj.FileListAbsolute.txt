@@ -1,0 +1,192 @@
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Hastane.dll.config
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Hastane.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Hastane.pdb
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.exe
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.exe.config
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.rsp
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.exe
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.exe.config
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.rsp
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.exe
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.exe.config
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.rsp
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\VBCSCompiler.exe
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Antlr3.Runtime.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.SqlServer.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Newtonsoft.Json.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Helpers.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Mvc.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Optimization.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Razor.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Deployment.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Razor.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\WebGrease.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.SqlServer.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Helpers.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Mvc.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Optimization.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.Razor.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Deployment.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Razor.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Newtonsoft.Json.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Antlr3.Runtime.pdb
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.CoreCompileInputs.cache
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.CopyComplete
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.pdb
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.AssemblyReference.cache
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Buffers.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Memory.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\kalbi\OneDrive\Masaüstü\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Hastane.dll.config
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Hastane.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Hastane.pdb
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.exe
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.exe.config
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.rsp
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.exe
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.exe.config
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.rsp
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Buffers.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Memory.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.exe
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.exe.config
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.rsp
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\VBCSCompiler.exe
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Antlr3.Runtime.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.SqlServer.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Newtonsoft.Json.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Helpers.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Mvc.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Optimization.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Razor.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Deployment.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Razor.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\WebGrease.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.SqlServer.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Newtonsoft.Json.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Helpers.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Mvc.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Razor.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Deployment.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Razor.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\System.Web.Optimization.xml
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\bin\Antlr3.Runtime.pdb
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.AssemblyReference.cache
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.CoreCompileInputs.cache
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.CopyComplete
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.dll
+C:\Users\EREN YARDIM\Desktop\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.pdb
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Hastane.dll.config
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Hastane.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Hastane.pdb
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.exe
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.exe.config
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\csc.rsp
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.exe
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.exe.config
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\csi.rsp
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.Managed.Core.targets
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Buffers.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Collections.Immutable.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Memory.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Numerics.Vectors.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Reflection.Metadata.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.exe
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.exe.config
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\vbc.rsp
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\VBCSCompiler.exe
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\roslyn\VBCSCompiler.exe.config
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Antlr3.Runtime.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.SqlServer.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Microsoft.Web.Infrastructure.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Newtonsoft.Json.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Helpers.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Mvc.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Optimization.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Razor.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Deployment.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Razor.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\WebGrease.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\EntityFramework.SqlServer.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Newtonsoft.Json.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Helpers.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Mvc.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Razor.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Deployment.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.WebPages.Razor.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\System.Web.Optimization.xml
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\bin\Antlr3.Runtime.pdb
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.AssemblyReference.cache
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.CoreCompileInputs.cache
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.csproj.CopyComplete
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.dll
+D:\aa EREN YARDIM\Hastane Projesi\HastaneProjesi\Hastane\Hastane\obj\Debug\Hastane.pdb

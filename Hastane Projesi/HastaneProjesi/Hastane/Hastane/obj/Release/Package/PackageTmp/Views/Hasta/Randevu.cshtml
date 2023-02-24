@@ -1,0 +1,109 @@
+﻿@model Hastane.Models.ViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHasta.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(function () {
+        $('#DPil').change(function () {
+            var id = $('#DPil').val();
+            $.ajax({
+                url: '/Hasta/hastanegetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#DPhastane').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $("#DPhastane").append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+        $('#DPhastane').change(function () {
+            var id = $('#DPhastane').val();
+            $.ajax({
+                url: '/Hasta/klinikgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#klinikid').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $("#klinikid").append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+        $('#klinikid').change(function () {
+            var id = $('#klinikid').val();
+            $.ajax({
+                url: '/Hasta/doktorgetir',
+                data: { p: id },
+                type: "POST",
+                dataType: "Json",
+                success: function (data) {
+                    console.log(data);
+                    $('#doktorid').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $("#doktorid").append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+        });
+        
+    });
+</script>
+ 
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Randevu Al</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Hasta")</li>
+        <li class="active">Randevu Al</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+        @using (Html.BeginForm("RandevuOnay", "Hasta", FormMethod.Get))
+        {
+            <label for="inputName" class="sr-only">İller</label>
+            @Html.DropDownList("DPil", Model.iller, "---Şehir Seçiniz---", new { @class = "form-control", @id = "DPil" })
+            <label for="inputName" class="sr-only">Hastaneler</label>
+            @Html.DropDownList("DPhastane", Model.hastaneler, "---Hastane Seçiniz---", new { @class = "form-control", @id = "DPhastane" })
+            @ViewBag.randevuYok
+            <label for="inputName" class="sr-only">Hastaneler</label>
+            @Html.DropDownList("klinikid", Model.hastaneler, "---Klinik Seçiniz---", new { @class = "form-control", @id = "klinikid" })
+            <label for="inputName" class="sr-only">Doktorlar</label>
+            @Html.DropDownList("doktorid", Model.hastaneler, "---Doktor Seçiniz---", new { @class = "form-control", @id = "doktorid" })
+
+            <div class="input-group-prepend">
+                <span class="input-group-text" style="width:140px">Randevu Tarihi Seçiniz</span>
+            </div>
+
+            @Html.TextBox("tarih", "", new { @class = "form-control", @type = "date", @placeholder = "Tarih Giriniz", @required = "", @maxlength = "11", @id = "tarih", @onchange = "deneme()" })
+            <input type="submit" value="Seçilen Tarihi Onayla" />
+
+            <p style="color:red">@TempData["hata"]</p>
+
+        }
+      
+
+
+
+    </div>
+
+</div>

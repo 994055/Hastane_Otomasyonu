@@ -1,0 +1,49 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_LayoutHasta.cshtml";
+}
+
+ 
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">İletişim</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="section">
+
+    <div class="container">
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
+                <li class="active">İletişim</li>
+            </ol>
+            <div class="col-sm-8">
+                <p>Aşağıda belirtilen adres, telefon ve email adreslerinden bize ulaşabilirsiniz.</p>
+
+
+
+                <div class="col-sm-4">
+                    <h3>Adres</h3>
+                    <p>
+                        <i class="fa fa-map-marker"></i> Samsun/Tekkeköy Çay Mah. 2054.Sok
+                    </p>
+                    <p><i class="fa fa-phone"></i> +90(543)6010438</p>
+                    <p><i class="fa fa-envelope"></i> <a href="mailto:erenym3@gmail.com">erenym3@gmail.com</a></p>
+                    <p><i class="fa fa-clock-o"></i> @DateTime.Now</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

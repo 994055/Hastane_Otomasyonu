@@ -1,0 +1,92 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.doktorList
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/Doktorlar</li>
+    </ol>
+    @using (Html.BeginForm("Index", "Yonetici", FormMethod.Get))
+    {
+        <p>
+            Doktor TC: @Html.TextBox("doktortc")
+            <input type="submit" value="Ara" />
+        </p>
+    }
+    <div class="row">
+
+        <div class="col-md-2">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İsim
+                </a>
+                @foreach (var personel in Model.doktorListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.ad) @Html.DisplayFor(modelItem => personel.soyad)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    TC
+                </a>
+                @foreach (var personel in Model.doktorListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.tc)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active " aria-current="true">
+                    Branş
+                </a>
+                @foreach (var personel in Model.doktorListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.brans)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Detay
+                </a>
+                @foreach (var personel in Model.doktorListesi)
+                {
+                    @Html.ActionLink("Detay", "DoktorDetay", "Yonetici", new { personelID = personel.personelID }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                   Bilgilerini Güncelle
+                </a>
+                @foreach (var personel in Model.doktorListesi)
+                {
+                    @Html.ActionLink("Güncelle", "DoktorGuncelle", "Yonetici", new { personelID = personel.personelID }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,95 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.doktorList
+@{
+    ViewBag.Title = "DoktorDetay";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Index", "Doktor")</li>
+        <li>@Html.ActionLink("Doktorlar", "Index", "Yonetici")</li>
+        <li class="active">/Doktor Detay</li>
+    </ol>
+   
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-primary">
+                <th scope="row">
+                    Adı Soyadı
+                </th>
+                <td>
+                    @foreach (var doktor in Model.doktorListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => doktor.ad) @Html.DisplayFor(modelItem => doktor.soyad)</a>
+                    }
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row">TC</th>
+                <td>
+                    @foreach (var doktor in Model.doktorListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => doktor.tc)</a>
+                    }
+                </td>
+
+            </tr>
+
+            <tr class="table-primary">
+                <th scope="row">Branş</th>
+                <td>
+                    @foreach (var doktor in Model.doktorListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => doktor.brans)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Diploma No</th>
+                <td>
+                    @foreach (var doktor in Model.doktorListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => doktor.diplomano)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Cinsiyet</th>
+                <td>
+                    @foreach (var doktor in Model.doktorListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => doktor.personel.cinsiyet)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">İzinde Mi?</th>
+                <td>
+                    @foreach (var doktor in Model.doktorListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">
+                            @if (doktor.izindeMi == true)
+                            {
+                                <p> Evet</p>
+                            }
+                            else
+                            {
+                                <p> Hayır</p>
+                            }
+                    </a>
+                }
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+

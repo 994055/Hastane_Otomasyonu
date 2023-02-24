@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eczaneModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="fatura">
+          <Key>
+            <PropertyRef Name="fatura_id" />
+          </Key>
+          <Property Name="fatura_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hasta_ad" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="hasta_tc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="hasta_odeme_turu" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="odenen_tutar" Type="double" Nullable="false" />
+          <Property Name="satilanilac" Type="varchar" MaxLength="300" />
+          <Property Name="fatura_traihi" Type="date" Nullable="false" />
+          <Property Name="faturayikesenid" Type="int" />
+        </EntityType>
+        <EntityType Name="ilac">
+          <Key>
+            <PropertyRef Name="ilac_id" />
+          </Key>
+          <Property Name="ilac_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ilac_ad" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="ilac_barkod" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="ilacadet" Type="int" Nullable="false" />
+          <Property Name="ilacfiyat" Type="double" />
+        </EntityType>
+        <EntityType Name="kullanici_yetki">
+          <Key>
+            <PropertyRef Name="kullanici_id" />
+            <PropertyRef Name="personel_id" />
+          </Key>
+          <Property Name="kullanici_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullanici_ad" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="personel_id" Type="int" Nullable="false" />
+          <Property Name="kullanici_soyad" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="kullanici_email" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="kullanici_sifre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="kullanicirol" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="personel">
+          <Key>
+            <PropertyRef Name="personelid" />
+          </Key>
+          <Property Name="personelid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ad" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="soyad" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="dtarih" Type="date" Nullable="false" />
+          <Property Name="adres" Type="varchar" MaxLength="45" />
+          <Property Name="ceptel" Type="varchar" MaxLength="11" />
+          <Property Name="diplomano" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="mezuniyet" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="cinsiyet" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="kullanilanizin" Type="int" Nullable="false" />
+          <Property Name="kalanizin" Type="int" Nullable="false" />
+          <Property Name="izinbitis" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="recete">
+          <Key>
+            <PropertyRef Name="receteid" />
+          </Key>
+          <Property Name="receteid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hastaad" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="hastatc" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="ilacbarkod" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="recetekodu" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="recetetarih" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="ilacadet" Type="varchar" MaxLength="15" />
+          <Property Name="ilacVerildiMi" Type="tinyint" />
+        </EntityType>
+        <Association Name="kullanici_yetki_ibfk_1">
+          <End Role="personel" Type="Self.personel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="kullanici_yetki" Type="Self.kullanici_yetki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personel">
+              <PropertyRef Name="personelid" />
+            </Principal>
+            <Dependent Role="kullanici_yetki">
+              <PropertyRef Name="personel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eczaneModelStoreContainer">
+          <EntitySet Name="fatura" EntityType="Self.fatura" Schema="eczane" store:Type="Tables" />
+          <EntitySet Name="ilac" EntityType="Self.ilac" Schema="eczane" store:Type="Tables" />
+          <EntitySet Name="kullanici_yetki" EntityType="Self.kullanici_yetki" Schema="eczane" store:Type="Tables" />
+          <EntitySet Name="personel" EntityType="Self.personel" Schema="eczane" store:Type="Tables" />
+          <EntitySet Name="recete" EntityType="Self.recete" Schema="eczane" store:Type="Tables" />
+          <AssociationSet Name="kullanici_yetki_ibfk_1" Association="Self.kullanici_yetki_ibfk_1">
+            <End Role="personel" EntitySet="personel" />
+            <End Role="kullanici_yetki" EntitySet="kullanici_yetki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eczaneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="fatura">
+          <Key>
+            <PropertyRef Name="fatura_id" />
+          </Key>
+          <Property Name="fatura_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hasta_ad" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hasta_tc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hasta_odeme_turu" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="odenen_tutar" Type="Double" Nullable="false" />
+          <Property Name="satilanilac" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="fatura_traihi" Type="DateTime" Nullable="false" />
+          <Property Name="faturayikesenid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ilac">
+          <Key>
+            <PropertyRef Name="ilac_id" />
+          </Key>
+          <Property Name="ilac_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ilac_ad" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ilac_barkod" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ilacadet" Type="Int32" Nullable="false" />
+          <Property Name="ilacfiyat" Type="Double" />
+        </EntityType>
+        <EntityType Name="kullanici_yetki">
+          <Key>
+            <PropertyRef Name="kullanici_id" />
+            <PropertyRef Name="personel_id" />
+          </Key>
+          <Property Name="kullanici_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullanici_ad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="personel_id" Type="Int32" Nullable="false" />
+          <Property Name="kullanici_soyad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kullanici_email" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kullanici_sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kullanicirol" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="personel" Relationship="Self.kullanici_yetki_ibfk_1" FromRole="kullanici_yetki" ToRole="personel" />
+        </EntityType>
+        <EntityType Name="personel">
+          <Key>
+            <PropertyRef Name="personelid" />
+          </Key>
+          <Property Name="personelid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="soyad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dtarih" Type="DateTime" Nullable="false" />
+          <Property Name="adres" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ceptel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="diplomano" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mezuniyet" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cinsiyet" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="kullanilanizin" Type="Int32" Nullable="false" />
+          <Property Name="kalanizin" Type="Int32" Nullable="false" />
+          <Property Name="izinbitis" Type="DateTime" />
+          <NavigationProperty Name="kullanici_yetki" Relationship="Self.kullanici_yetki_ibfk_1" FromRole="personel" ToRole="kullanici_yetki" />
+        </EntityType>
+        <EntityType Name="recete">
+          <Key>
+            <PropertyRef Name="receteid" />
+          </Key>
+          <Property Name="receteid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hastaad" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hastatc" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ilacbarkod" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="recetekodu" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="recetetarih" Type="DateTime" Nullable="false" />
+          <Property Name="ilacadet" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ilacVerildiMi" Type="SByte" />
+        </EntityType>
+        <Association Name="kullanici_yetki_ibfk_1">
+          <End Role="personel" Type="Self.personel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="kullanici_yetki" Type="Self.kullanici_yetki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personel">
+              <PropertyRef Name="personelid" />
+            </Principal>
+            <Dependent Role="kullanici_yetki">
+              <PropertyRef Name="personel_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eczaneEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="fatura" EntityType="Self.fatura" />
+          <EntitySet Name="ilac" EntityType="Self.ilac" />
+          <EntitySet Name="kullanici_yetki" EntityType="Self.kullanici_yetki" />
+          <EntitySet Name="personel" EntityType="Self.personel" />
+          <EntitySet Name="recete" EntityType="Self.recete" />
+          <AssociationSet Name="kullanici_yetki_ibfk_1" Association="Self.kullanici_yetki_ibfk_1">
+            <End Role="personel" EntitySet="personel" />
+            <End Role="kullanici_yetki" EntitySet="kullanici_yetki" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eczaneModelStoreContainer" CdmEntityContainer="eczaneEntities">
+          <EntitySetMapping Name="fatura">
+            <EntityTypeMapping TypeName="eczaneModel.fatura">
+              <MappingFragment StoreEntitySet="fatura">
+                <ScalarProperty Name="fatura_id" ColumnName="fatura_id" />
+                <ScalarProperty Name="hasta_ad" ColumnName="hasta_ad" />
+                <ScalarProperty Name="hasta_tc" ColumnName="hasta_tc" />
+                <ScalarProperty Name="hasta_odeme_turu" ColumnName="hasta_odeme_turu" />
+                <ScalarProperty Name="odenen_tutar" ColumnName="odenen_tutar" />
+                <ScalarProperty Name="satilanilac" ColumnName="satilanilac" />
+                <ScalarProperty Name="fatura_traihi" ColumnName="fatura_traihi" />
+                <ScalarProperty Name="faturayikesenid" ColumnName="faturayikesenid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ilac">
+            <EntityTypeMapping TypeName="eczaneModel.ilac">
+              <MappingFragment StoreEntitySet="ilac">
+                <ScalarProperty Name="ilac_id" ColumnName="ilac_id" />
+                <ScalarProperty Name="ilac_ad" ColumnName="ilac_ad" />
+                <ScalarProperty Name="ilac_barkod" ColumnName="ilac_barkod" />
+                <ScalarProperty Name="ilacadet" ColumnName="ilacadet" />
+                <ScalarProperty Name="ilacfiyat" ColumnName="ilacfiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kullanici_yetki">
+            <EntityTypeMapping TypeName="eczaneModel.kullanici_yetki">
+              <MappingFragment StoreEntitySet="kullanici_yetki">
+                <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
+                <ScalarProperty Name="kullanici_ad" ColumnName="kullanici_ad" />
+                <ScalarProperty Name="personel_id" ColumnName="personel_id" />
+                <ScalarProperty Name="kullanici_soyad" ColumnName="kullanici_soyad" />
+                <ScalarProperty Name="kullanici_email" ColumnName="kullanici_email" />
+                <ScalarProperty Name="kullanici_sifre" ColumnName="kullanici_sifre" />
+                <ScalarProperty Name="kullanicirol" ColumnName="kullanicirol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personel">
+            <EntityTypeMapping TypeName="eczaneModel.personel">
+              <MappingFragment StoreEntitySet="personel">
+                <ScalarProperty Name="personelid" ColumnName="personelid" />
+                <ScalarProperty Name="tc" ColumnName="tc" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="dtarih" ColumnName="dtarih" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="ceptel" ColumnName="ceptel" />
+                <ScalarProperty Name="diplomano" ColumnName="diplomano" />
+                <ScalarProperty Name="mezuniyet" ColumnName="mezuniyet" />
+                <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+                <ScalarProperty Name="kullanilanizin" ColumnName="kullanilanizin" />
+                <ScalarProperty Name="kalanizin" ColumnName="kalanizin" />
+                <ScalarProperty Name="izinbitis" ColumnName="izinbitis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="recete">
+            <EntityTypeMapping TypeName="eczaneModel.recete">
+              <MappingFragment StoreEntitySet="recete">
+                <ScalarProperty Name="receteid" ColumnName="receteid" />
+                <ScalarProperty Name="hastaad" ColumnName="hastaad" />
+                <ScalarProperty Name="hastatc" ColumnName="hastatc" />
+                <ScalarProperty Name="ilacbarkod" ColumnName="ilacbarkod" />
+                <ScalarProperty Name="recetekodu" ColumnName="recetekodu" />
+                <ScalarProperty Name="recetetarih" ColumnName="recetetarih" />
+                <ScalarProperty Name="ilacadet" ColumnName="ilacadet" />
+                <ScalarProperty Name="ilacVerildiMi" ColumnName="ilacVerildiMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,92 @@
+﻿@using Hastane.Models.Entity
+@model List<klinik>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/Klinikler</li>
+    </ol>
+    <div class="col-md-6">
+        @using (Html.BeginForm("Klinikler", "Yonetici", FormMethod.Get))
+        {
+            <p>
+                Aranacak Hastane Adı: @Html.TextBox("hastaneAd")
+                <input type="submit" value="Ara" />
+            </p>
+        }
+        @using (Html.BeginForm("Klinikler", "Yonetici", FormMethod.Get))
+        {
+            <p>
+                Klinik adı ile ara: @Html.TextBox("klinik")
+                <input type="submit" value="Ara" />
+            </p>
+
+        }
+    </div>
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Klinik İsmi
+                </a>
+                @foreach (var klinik in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => klinik.klinik1)</a>
+                }
+            </div>
+        </div>
+ 
+
+        <div class="col-md-4">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Hangi Hastanede
+                </a>
+                @foreach (var klinik in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => klinik.hastane1.hastaneadi)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Klinik Güncelle
+                </a>
+                @foreach (var klinik in Model)
+                {
+                    @Html.ActionLink("Güncelle", "KlinikGuncelle", "Yonetici", new { klinikID = klinik.klinikid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Klinik Sil
+                </a>
+                @foreach (var klinik in Model)
+                {
+                    @Html.ActionLink("   Sil", "KlinikSil", "Yonetici", new { klinikID = klinik.klinikid }, new { @class = "list-group-item list-group-item-action list-group-item-danger active", onclick = "return confirm('Kliniği silmek istediğinize emin misiniz? ')" })
+                }
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+
+</div>
+
+

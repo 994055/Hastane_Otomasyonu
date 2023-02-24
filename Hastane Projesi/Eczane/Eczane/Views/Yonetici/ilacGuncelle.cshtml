@@ -1,0 +1,86 @@
+﻿@using Eczane.Models.Entity;
+@model Eczane.Models.stokList
+@{
+    ViewBag.Title = "personelBilgiler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    eczaneEntities ec = new eczaneEntities();
+}
+
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Personel Güncelle</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Anasayfa", "Eczaci")</li>
+        <li>@Html.ActionLink("Personeller", "PersonelListele", "Yonetici")</li>
+        <li class="active">/Personel Güncelle</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+        <p style="color:red">@ViewBag.Hata</p>
+
+        @using (Html.BeginForm("ilacGuncelle", "Yonetici", FormMethod.Post))
+        {
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç İsmi</span>
+                </div>
+                @foreach (var ilac in Model.ilacListesi)
+                {
+                    @Html.TextBox("ilac_ad", ilac.ilac_ad, new { @class = "form-control", @type = "text", @placeholder = "İlaç İsmi Giriniz", @required = "", @maxlength = "50", @id = "iacad" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç Barkodu</span>
+                </div>
+                @foreach (var ilac in Model.ilacListesi)
+                {
+                    @Html.TextBox("ilac_barkod", ilac.ilac_barkod, new { @class = "form-control", @type = "number", @placeholder = "İlaç Barkodu Giriniz", @required = "", @maxlength = "50", @id = "ilacbarkod", @onKeyPress = "if(this.value.length==11) return false;" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç Fiyatı</span>
+                </div>
+                @foreach (var ilac in Model.ilacListesi)
+                {
+                    @Html.TextBox("ilacfiyat", ilac.ilacfiyat, new { @class = "form-control", @type = "numberdouble", @placeholder = "İlaç Fiyatı Giriniz", @required = "", @onKeyPress = "if(this.value.length==11) return false;", @id = "tc" })
+               @Html.Hidden("ilacID", ilac.ilac_id);
+                }
+            </div>
+ 
+           
+
+            <button class="btn btn-lg btn-primary btn-block" id="btnguncelle" type="submit">Güncelle</button>
+            <script>
+                $('#btnguncelle').click(function () {
+
+                    if ($.trim($("#adres").val()) != "" && $.trim($("#ad").val()) != "" && $.trim($("#soyad").val()) != "" && $.trim($("#tc").val()) != "" && $.trim($("#dtarih").val()) != ""
+                        && $.trim($("#cinsiyet").val()) != "" && $.trim($("#ceptel").val()) != ""
+                        && $.trim($("#email").val()) != "" && $.trim($("#sifre").val()) != "") {
+                        alert('Bilgileriniz başarıyla güncellendi.')
+                    }
+                });
+            </script>
+
+
+
+        }
+
+
+
+
+    </div>
+</div>
+

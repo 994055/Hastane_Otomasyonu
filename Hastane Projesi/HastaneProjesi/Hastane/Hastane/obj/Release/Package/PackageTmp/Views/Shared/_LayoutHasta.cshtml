@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hastane Randevu</title>
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/Tasarim/css/bootstrap.css" rel="stylesheet">
+    <link href="/Tasarim/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="/Tasarim/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/Tasarim/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/Tasarim/js/plugins.js"></script>
+    <script type="text/javascript" src="/Tasarim/js/gezi.js"></script>
+    <script src="https://kit.fontawesome.com/2b56b1e589.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Hastane Randevu", "Index", "Hasta", new { area = "" }, new { @class = "navbar-brand" })
+
+            </div>
+
+
+            <div class="navbar-header">
+                <div class="container">
+
+                    <ul class="nav navbar-nav navbar-left">
+
+                        <li style="left: auto">@Html.ActionLink("Anasayfa", "Index", "Hasta")</li>
+                        <li style="left: auto">@Html.ActionLink("Randevu Al", "Randevu", "Hasta")</li>
+                        <li style="left: auto">@Html.ActionLink("Randevularım", "Randevularim", "Hasta")</li>
+                        <li style="left: auto">@Html.ActionLink("Hakkımızda", "About", "Hasta")</li>
+                        <li style="left: auto">@Html.ActionLink("İletişim", "Contact", "Hasta")</li>
+
+
+                    </ul>
+                    @if (Session["HastaGirdi"] == "evet")
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li style="left: auto">@Html.ActionLink("Bilgilerim", "HastaBilgiler", "Hasta")</li>
+                            <li style="left: auto">@Html.ActionLink("Çıkış Yap", "Cikis", "Hasta")</li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li style="left: auto">@Html.ActionLink("Kayıt Ol", "HastaYeniKayit", "Hasta")</li>
+                            <li style="left: auto">@Html.ActionLink("Giriş Yap", "HastaGiris", "Hasta")</li>
+                            <li style="left: auto">@Html.ActionLink("Doktor Giriş", "Index", "Login")</li>
+                        </ul>
+
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+    <footer>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <a class="footer-brand" href="index.html">Hastane Randevu</a>
+                    <p>Oluşturduğu profesyonel kadrosu ve güçlü altyapısıyla Hastanelerimiz siz hastalarımıza en iyi hizmeti vermeyi hedefliyor.</p>
+                    <ul class="list-inline list-unstyled social-networks">
+                        <li>
+                            <a href="https://www.facebook.com" target="_blank">
+                                <div class="icon-social icon-social-facebook normal">
+                                    <i class="fa fa-facebook"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-facebook"></i>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://twitter.com/?lang=tr" target="_blank">
+                                <div class="icon-social icon-social-twitter normal">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-twitter"></i>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.google.com.tr" target="_blank">
+                                <div class="icon-social icon-social-google-plus normal">
+                                    <i class="fa fa-google-plus"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-google-plus"></i>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.youtube.com" target="_blank">
+                                <div class="icon-social icon-social-youtube normal">
+                                    <i class="fa fa-youtube-play"></i>
+                                </div>
+                                <div class="icon-social hover">
+                                    <i class="fa fa-youtube-play"></i>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <h3>İLETİŞİM</h3>
+                    <address>
+                        <i class="fa fa-map-marker"></i> Samsun/Tekkeköy 2054.Sok. No:10<br>
+                        <i class="fa fa-phone"></i> +90(543)6010438<br>
+                        <i class="fa fa-envelope"></i> erenym3@gmail.com
+                    </address>
+                </div>
+
+                <div class="col-lg-3 col-md-3">
+                    <h3>SON TWEETLER</h3>
+                    <ul class="latest-tweets">
+                        <li>
+                            <i class="fa fa-twitter"></i>Sağlık Bakanlığı, Koronavirüs risk taramasını çat kapı değil, planlayarak yapmaktadır. Sizi 184’ten arayıp bilgilendiriyor, ondan sonra geliyoruz. SABİM-184’ten size TELEFON GELMEMİŞSE, test amacıyla geldiğini söyleyenleri içeri almayın. KÖTÜ NİYETLİLERE KARŞI DA TEDBİRLİ OLALIM!
+                        </li>
+                        <li>
+                            <i class="fa fa-twitter"></i> Kazalar, psikososyal travmalar vb. de engelliliğin önemli nedenleri arasındadır. Bir bütün olarak bakıldığında, engelliliğin yazgı olmadığını belirtmeliyiz. Sosyal politikalarla yaygın koruyucu uygulamaların toplumda engelli birey oranını AZALTTIĞI KESİNDİR.
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-3">
+                    <h3>Haber Bülteni</h3>
+                    <p>Vakaların azalması ‘pandemi bitti’ havası yaratsa da biliminsanları koronanın peşini bırakmıyor. Virüsü yakın takip altına alan uzmanlar, hem COVID-19’un normal enfeksiyon hastalıkları içindeki payını araştırıyor hem de sonbahara kadar yeni bir evrilme yaşanıp yaşanmayacağını görmek için çalışıyor.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <div class="footer-after">
+        <div class="container">
+            <div class="row">
+                <p class="col-md-10">©2001-2020 Tüm Hakları Saklıdır. Eren Yardım Tarafından Tasarlandı.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="/Tasarim/js/switcher/switcher.js"></script>
+    <link href="/Tasarim/js/switcher/switcher.css" rel="stylesheet">
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Doktorizin";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">İzin Talebi</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/İzin Al</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+
+        @using (Html.BeginForm("Doktorizin", "Doktor", FormMethod.Post))
+        {
+
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:140px">İzindeki Adresiniz</span>
+                </div>
+                @Html.TextBox("izindekiadres", "", new { @class = "form-control", @type = "text", @placeholder = "Adres giriniz", @required = "", @maxlength = "200" })
+
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:140px">İzin Nedeni</span>
+                </div>
+                @Html.DropDownList("izinturu", (List<SelectListItem>)ViewBag.izin, new { @class = "form-control" })
+
+            </div>
+
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:140px">İzin Başlangıç</span>
+                </div>
+                @Html.TextBox("izinbaslangic", "", new { @class = "form-control", @type = "date", @placeholder = "İzin Başlangıç Tarihi", @required = "", @maxlength = "11" })
+
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:140px">İzin Bitiş</span>
+                </div>
+                @Html.TextBox("izinbitis", "", new { @class = "form-control", @type = "date", @placeholder = "İzin Bitiş Tarihi", @required = "", @maxlength = "11" })
+
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" id="btnizin" type="submit">İzin Talebi Oluştur</button>
+            <script>
+                $('#btnizin').click(function () {
+                    alert('İzin talebiniz başarıyla oluşturuldu')
+                });
+            </script>
+        }
+
+
+
+
+    </div>
+</div>
+
+

@@ -1,0 +1,85 @@
+﻿@model Eczane.Models.stokList
+@{
+    ViewBag.Title = "DoktorEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+
+
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">İlaç Ekle</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Anasayfa", "Eczaci")</li>
+        <li class="active">/İlaç Ekle</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+        @using (Html.BeginForm("ilacStokEkle", "Yonetici", FormMethod.Post))
+        {
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç Adı</span>
+                </div>
+                @foreach (var ilac in Model.ilacListesi)
+                {
+                    @Html.TextBox("ilac_ad", ilac.ilac_ad, new { @class = "form-control", @type = "text", @placeholder = "İlaç Barkodu Giriniz", @required = "", @readonly = "readonly", @maxlength = "12", @id = "ilac_barkod" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç Barkodu</span>
+                </div>
+                @foreach (var ilac in Model.ilacListesi)
+                {
+                    @Html.TextBox("ilac_barkod", ilac.ilac_barkod, new { @class = "form-control", @type = "text", @placeholder = "İlaç Barkodu Giriniz", @required = "", @readonly = "readonly", @maxlength = "12", @id = "ilac_barkod" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç Adeti</span>
+                </div>
+                @foreach (var ilac in Model.ilacListesi)
+                {
+                    @Html.TextBox("ilacadeteski", ilac.ilacadet, new { @class = "form-control", @type = "text", @placeholder = "İlaç Barkodu Giriniz", @required = "", @readonly = "readonly", @maxlength = "12", @id = "ilac_barkod" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Eklenecek Adet</span>
+                </div>
+                @Html.TextBox("ilacadet", "", new { @class = "form-control", @type = "number", @placeholder = "İlaç Adeti Giriniz", @required = "", @maxlength = "4", @id = "ilacadet" })
+
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" id="btnilacEkle" type="submit">Adet Ekle</button>
+            <script>
+                $(function () {
+                    $('#btnilacEkle').click(function () {                        
+                            alert('İlaç ekleme işlemi başarıyla gerçekleşti.')
+                    });
+                });
+            </script>
+
+        }
+
+
+
+
+    </div>
+</div>
+

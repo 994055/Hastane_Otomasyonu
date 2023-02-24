@@ -1,0 +1,73 @@
+﻿@model Hastane.Models.doktorList
+@{
+    ViewBag.Title = "hastaneBilgiler";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Hastane Güncelle</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/Hastane Güncelle</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+
+
+        @using (Html.BeginForm("HastaneGuncelle", "Yonetici", FormMethod.Post))
+        {
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Hastane Adı</span>
+                </div>
+                @foreach (var hastane in Model.hastaneListesi)
+                {
+                    @Html.TextBox("hastaneadi", hastane.hastaneadi, new { @class = "form-control", @type = "text", @placeholder = "İsim Giriniz", @required = "", @maxlength = "50", @id = "hastaneadi" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Hangi Şehirde</span>
+                </div>
+                @foreach (var hastane in Model.hastaneListesi)
+                {
+                    @Html.TextBox("sehiradi", hastane.iller.sehiradi, new { @class = "form-control", @type = "text", @placeholder = "Soyad Giriniz", @required = "", @readonly = "readonly", @maxlength = "50", @id = "sehiradi" })
+                }
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" id="btnguncelle" type="submit">Güncelle</button>
+
+            <script>
+                $(function () {
+                    $('#btnguncelle').click(function () {
+                        if (($.trim($("#hastaneadi").val()) != "" && $.trim($("#sehiradi").val()) != "")
+                         {
+                            alert('Hastane Bilgileri başarıyla güncellendi');
+                        }
+                    });
+                });
+            </script>
+
+
+
+        }
+
+
+
+
+    </div>
+</div>
+

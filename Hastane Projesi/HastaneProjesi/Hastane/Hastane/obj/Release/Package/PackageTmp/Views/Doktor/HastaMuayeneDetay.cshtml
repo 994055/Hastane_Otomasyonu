@@ -1,0 +1,102 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.randevuList
+@{
+    ViewBag.Title = "HastaDetay";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+    HastaneEntities2 hs = new HastaneEntities2();
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Index", "Doktor")</li>
+        <li>@Html.ActionLink("Hastalarım", "Hastalarim", "Doktor")</li>
+        <li class="active">/Hasta Detay</li>
+    </ol>
+
+    <table class="table table-hover">
+    
+        <thead>
+            <tr>
+                <th scope="col">
+                    @foreach (var hasta in Model.muayeneListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.hasta.ad) @Html.DisplayFor(modelItem => hasta.hasta.soyad)</a>
+                    }
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row">TC</th>
+                <td>
+                    @foreach (var hasta in Model.muayeneListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.hasta.tc)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Teşhis</th>
+                <td>
+
+                    @foreach (var hasta in Model.muayeneListesi)
+                    {
+
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.teshis)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Muayene Tarihi</th>
+                <td>
+                    @foreach (var hasta in Model.muayeneListesi)
+                    {
+                        string tarih = hasta.muayenetarih.ToString();
+                        string[] dizi = tarih.Split(' ');
+                        string tut = dizi[0];
+                        <a href="#" class="list-group-item list-group-item-action">@tut</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Verilen İlaçlar</th>
+                <td>
+
+                    @foreach (var hasta in Model.muayeneListesi)
+                    {
+                        var islem = hs.islemler.Where(x => x.muayeneid == hasta.muayeneid).FirstOrDefault();
+                        <a href="#" class="list-group-item list-group-item-action">@islem.ilac</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Yatış Verildimi</th>
+                <td>
+                    @foreach (var hasta in Model.muayeneListesi)
+                    {
+                        if (hasta.yatis == true)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action">EVET</a>
+                        }
+                        else
+                        {
+                            <a href="#" class="list-group-item list-group-item-action">HAYIR</a>
+                        }
+
+                    }
+                </td>
+
+            </tr>
+
+
+        </tbody>
+    </table>
+
+</div>
+

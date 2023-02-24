@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HastaneModelStoreContainer" CdmEntityContainer="HastaneEntities2">
+    <EntitySetMapping Name="doktor">
+      <EntityTypeMapping TypeName="HastaneModel.doktor">
+        <MappingFragment StoreEntitySet="doktor">
+          <ScalarProperty Name="drid" ColumnName="drid" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="brans" ColumnName="brans" />
+          <ScalarProperty Name="branskod" ColumnName="branskod" />
+          <ScalarProperty Name="diplomano" ColumnName="diplomano" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="klinik" ColumnName="klinik" />
+          <ScalarProperty Name="personelID" ColumnName="personelID" />
+          <ScalarProperty Name="izindeMi" ColumnName="izindeMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hasta">
+      <EntityTypeMapping TypeName="HastaneModel.hasta">
+        <MappingFragment StoreEntitySet="hasta">
+          <ScalarProperty Name="hastaid" ColumnName="hastaid" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="dtarih" ColumnName="dtarih" />
+          <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+          <ScalarProperty Name="kurum" ColumnName="kurum" />
+          <ScalarProperty Name="babaad" ColumnName="babaad" />
+          <ScalarProperty Name="annead" ColumnName="annead" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="ceptel" ColumnName="ceptel" />
+          <ScalarProperty Name="kullanici" ColumnName="kullanici" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="randevuID" ColumnName="randevuID" />
+          <ScalarProperty Name="kanGrubu" ColumnName="kanGrubu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hastane">
+      <EntityTypeMapping TypeName="HastaneModel.hastane">
+        <MappingFragment StoreEntitySet="hastane">
+          <ScalarProperty Name="hastaneid" ColumnName="hastaneid" />
+          <ScalarProperty Name="hastaneadi" ColumnName="hastaneadi" />
+          <ScalarProperty Name="ilid" ColumnName="ilid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hata">
+      <EntityTypeMapping TypeName="HastaneModel.hata">
+        <MappingFragment StoreEntitySet="hata">
+          <ScalarProperty Name="hataid" ColumnName="hataid" />
+          <ScalarProperty Name="hatamesaji" ColumnName="hatamesaji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilac">
+      <EntityTypeMapping TypeName="HastaneModel.ilac">
+        <MappingFragment StoreEntitySet="ilac">
+          <ScalarProperty Name="ilacid" ColumnName="ilacid" />
+          <ScalarProperty Name="ilacad" ColumnName="ilacad" />
+          <ScalarProperty Name="ilacicerik" ColumnName="ilacicerik" />
+          <ScalarProperty Name="ilacbarkod" ColumnName="ilacbarkod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="iller">
+      <EntityTypeMapping TypeName="HastaneModel.iller">
+        <MappingFragment StoreEntitySet="iller">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sehiradi" ColumnName="sehiradi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="islemler">
+      <EntityTypeMapping TypeName="HastaneModel.islemler">
+        <MappingFragment StoreEntitySet="islemler">
+          <ScalarProperty Name="islemid" ColumnName="islemid" />
+          <ScalarProperty Name="muayeneid" ColumnName="muayeneid" />
+          <ScalarProperty Name="hastaadisoyadi" ColumnName="hastaadisoyadi" />
+          <ScalarProperty Name="hastatc" ColumnName="hastatc" />
+          <ScalarProperty Name="tetkikid" ColumnName="tetkikid" />
+          <ScalarProperty Name="ilac" ColumnName="ilac" />
+          <ScalarProperty Name="ilacadet" ColumnName="ilacadet" />
+          <ScalarProperty Name="islemtarihi" ColumnName="islemtarihi" />
+          <ScalarProperty Name="yatis" ColumnName="yatis" />
+          <ScalarProperty Name="islemiyapan" ColumnName="islemiyapan" />
+          <ScalarProperty Name="kullanici" ColumnName="kullanici" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="izin">
+      <EntityTypeMapping TypeName="HastaneModel.izin">
+        <MappingFragment StoreEntitySet="izin">
+          <ScalarProperty Name="izinid" ColumnName="izinid" />
+          <ScalarProperty Name="personelid" ColumnName="personelid" />
+          <ScalarProperty Name="izinbaslangic" ColumnName="izinbaslangic" />
+          <ScalarProperty Name="izinbitis" ColumnName="izinbitis" />
+          <ScalarProperty Name="izindekiadres" ColumnName="izindekiadres" />
+          <ScalarProperty Name="izinturu" ColumnName="izinturu" />
+          <ScalarProperty Name="onaylandimi" ColumnName="onaylandimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="izintur">
+      <EntityTypeMapping TypeName="HastaneModel.izintur">
+        <MappingFragment StoreEntitySet="izintur">
+          <ScalarProperty Name="turid" ColumnName="turid" />
+          <ScalarProperty Name="tur" ColumnName="tur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kanGrubu">
+      <EntityTypeMapping TypeName="HastaneModel.kanGrubu">
+        <MappingFragment StoreEntitySet="kanGrubu">
+          <ScalarProperty Name="kangrubuID" ColumnName="kangrubuID" />
+          <ScalarProperty Name="kangrubuAdi" ColumnName="kangrubuAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="klinik">
+      <EntityTypeMapping TypeName="HastaneModel.klinik">
+        <MappingFragment StoreEntitySet="klinik">
+          <ScalarProperty Name="klinikid" ColumnName="klinikid" />
+          <ScalarProperty Name="klinik1" ColumnName="klinik" />
+          <ScalarProperty Name="yataksayi" ColumnName="yataksayi" />
+          <ScalarProperty Name="hastane" ColumnName="hastane" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kullanici_Yetki">
+      <EntityTypeMapping TypeName="HastaneModel.kullanici_Yetki">
+        <MappingFragment StoreEntitySet="kullanici_Yetki">
+          <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+          <ScalarProperty Name="personelid" ColumnName="personelid" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="hastakayit" ColumnName="hastakayit" />
+          <ScalarProperty Name="klinik" ColumnName="klinik" />
+          <ScalarProperty Name="eczane" ColumnName="eczane" />
+          <ScalarProperty Name="vezne" ColumnName="vezne" />
+          <ScalarProperty Name="kullaniciRol" ColumnName="kullaniciRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mesajgiden">
+      <EntityTypeMapping TypeName="HastaneModel.mesajgiden">
+        <MappingFragment StoreEntitySet="mesajgiden">
+          <ScalarProperty Name="gidenmesajid" ColumnName="gidenmesajid" />
+          <ScalarProperty Name="mesaj" ColumnName="mesaj" />
+          <ScalarProperty Name="kimdenid" ColumnName="kimdenid" />
+          <ScalarProperty Name="kimeid" ColumnName="kimeid" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="cevaplananmesaj" ColumnName="cevaplananmesaj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="muayene">
+      <EntityTypeMapping TypeName="HastaneModel.muayene">
+        <MappingFragment StoreEntitySet="muayene">
+          <ScalarProperty Name="muayeneid" ColumnName="muayeneid" />
+          <ScalarProperty Name="hastaid" ColumnName="hastaid" />
+          <ScalarProperty Name="muayenetarih" ColumnName="muayenetarih" />
+          <ScalarProperty Name="poliklinik" ColumnName="poliklinik" />
+          <ScalarProperty Name="teshis" ColumnName="teshis" />
+          <ScalarProperty Name="yatis" ColumnName="yatis" />
+          <ScalarProperty Name="yatistarihi" ColumnName="yatistarihi" />
+          <ScalarProperty Name="yatisbitistarihi" ColumnName="yatisbitistarihi" />
+          <ScalarProperty Name="randevusaat" ColumnName="randevusaat" />
+          <ScalarProperty Name="muayenebaslangici" ColumnName="muayenebaslangici" />
+          <ScalarProperty Name="muayenebitisi" ColumnName="muayenebitisi" />
+          <ScalarProperty Name="muayeneonay" ColumnName="muayeneonay" />
+          <ScalarProperty Name="kullanici" ColumnName="kullanici" />
+          <ScalarProperty Name="randevuid" ColumnName="randevuid" />
+          <ScalarProperty Name="cikisonay" ColumnName="cikisonay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personel">
+      <EntityTypeMapping TypeName="HastaneModel.personel">
+        <MappingFragment StoreEntitySet="personel">
+          <ScalarProperty Name="personelid" ColumnName="personelid" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="ceptel" ColumnName="ceptel" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="dtarih" ColumnName="dtarih" />
+          <ScalarProperty Name="sicilno" ColumnName="sicilno" />
+          <ScalarProperty Name="unvan" ColumnName="unvan" />
+          <ScalarProperty Name="diplomano" ColumnName="diplomano" />
+          <ScalarProperty Name="mezuniyet" ColumnName="mezuniyet" />
+          <ScalarProperty Name="kullanilanizin" ColumnName="kullanilanizin" />
+          <ScalarProperty Name="kalanizin" ColumnName="kalanizin" />
+          <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+          <ScalarProperty Name="izinbitis" ColumnName="izinbitis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="randevu">
+      <EntityTypeMapping TypeName="HastaneModel.randevu">
+        <MappingFragment StoreEntitySet="randevu">
+          <ScalarProperty Name="randevuid" ColumnName="randevuid" />
+          <ScalarProperty Name="adsyad" ColumnName="adsyad" />
+          <ScalarProperty Name="hastaid" ColumnName="hastaid" />
+          <ScalarProperty Name="saat" ColumnName="saat" />
+          <ScalarProperty Name="doktorid" ColumnName="doktorid" />
+          <ScalarProperty Name="klinikid" ColumnName="klinikid" />
+          <ScalarProperty Name="geldimi" ColumnName="geldimi" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recete">
+      <EntityTypeMapping TypeName="HastaneModel.recete">
+        <MappingFragment StoreEntitySet="recete">
+          <ScalarProperty Name="receteid" ColumnName="receteid" />
+          <ScalarProperty Name="ilackodu" ColumnName="ilackodu" />
+          <ScalarProperty Name="hastaad" ColumnName="hastaad" />
+          <ScalarProperty Name="hastatc" ColumnName="hastatc" />
+          <ScalarProperty Name="recetekodu" ColumnName="recetekodu" />
+          <ScalarProperty Name="recetetarih" ColumnName="recetetarih" />
+          <ScalarProperty Name="ilacadet" ColumnName="ilacadet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saat">
+      <EntityTypeMapping TypeName="HastaneModel.saat">
+        <MappingFragment StoreEntitySet="saat">
+          <ScalarProperty Name="saatid" ColumnName="saatid" />
+          <ScalarProperty Name="saatzaman" ColumnName="saatzaman" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HastaneModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="teshis">
+      <EntityTypeMapping TypeName="HastaneModel.teshis">
+        <MappingFragment StoreEntitySet="teshis">
+          <ScalarProperty Name="teshisid" ColumnName="teshisid" />
+          <ScalarProperty Name="teshis1" ColumnName="teshis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="unvan">
+      <EntityTypeMapping TypeName="HastaneModel.unvan">
+        <MappingFragment StoreEntitySet="unvan">
+          <ScalarProperty Name="kadroid" ColumnName="kadroid" />
+          <ScalarProperty Name="unvan1" ColumnName="unvan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

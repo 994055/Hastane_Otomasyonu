@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="29d07e42f05b47c2a5331b5f13b76eba" Name="Diagram1">
+        <EntityTypeShape EntityType="HastaneModel.doktor" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.hasta" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.hastane" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.hata" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.ilac" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.iller" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.islemler" Width="1.5" PointX="12" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.izin" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.izintur" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.kanGrubu" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.klinik" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.kullanici_Yetki" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.mesajgiden" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.muayene" Width="1.5" PointX="9.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.personel" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.randevu" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.recete" Width="1.5" PointX="10.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.saat" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.sysdiagrams" Width="1.5" PointX="11.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.teshis" Width="1.5" PointX="7.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneModel.unvan" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="HastaneModel.FK_doktor_klinik1" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_doktor_personel" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_mesajgiden_doktor" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_hasta_kanGrubu" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_hasta_kullanici_Yetki" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_hasta_randevu" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_muayene_hasta1" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_hastane_iller" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_klinik_hastane" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_islemler_kullanici_Yetki" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_islemler_muayene" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_izin_izintur" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_izin_personel" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_muayene_klinik" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_kullanici_Yetki_personel" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_muayene_kullanici_Yetki" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_personel_unvan" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneModel.FK_randevu_saat" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

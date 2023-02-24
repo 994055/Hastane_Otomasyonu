@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="doktor">
+    <Key>
+      <PropertyRef Name="drid" />
+    </Key>
+    <Property Name="drid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="soyad" Type="varchar" MaxLength="50" />
+    <Property Name="brans" Type="varchar" MaxLength="50" />
+    <Property Name="branskod" Type="varchar" MaxLength="50" />
+    <Property Name="diplomano" Type="varchar" MaxLength="50" />
+    <Property Name="tc" Type="varchar" MaxLength="11" />
+    <Property Name="klinik" Type="int" />
+    <Property Name="personelID" Type="int" />
+    <Property Name="izindeMi" Type="bit" />
+  </EntityType>
+  <EntityType Name="hasta">
+    <Key>
+      <PropertyRef Name="hastaid" />
+    </Key>
+    <Property Name="hastaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tc" Type="varchar" MaxLength="11" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="soyad" Type="varchar" MaxLength="50" />
+    <Property Name="dtarih" Type="varchar" MaxLength="10" />
+    <Property Name="cinsiyet" Type="varchar" MaxLength="5" />
+    <Property Name="kurum" Type="int" />
+    <Property Name="babaad" Type="varchar" MaxLength="50" />
+    <Property Name="annead" Type="varchar" MaxLength="50" />
+    <Property Name="adres" Type="varchar" MaxLength="250" />
+    <Property Name="ceptel" Type="varchar" MaxLength="15" />
+    <Property Name="kullanici" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="60" />
+    <Property Name="sifre" Type="varchar" MaxLength="8" />
+    <Property Name="randevuID" Type="int" />
+    <Property Name="kanGrubu" Type="int" />
+  </EntityType>
+  <EntityType Name="hastane">
+    <Key>
+      <PropertyRef Name="hastaneid" />
+    </Key>
+    <Property Name="hastaneid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hastaneadi" Type="varchar" MaxLength="50" />
+    <Property Name="ilid" Type="int" />
+  </EntityType>
+  <EntityType Name="hata">
+    <Key>
+      <PropertyRef Name="hataid" />
+    </Key>
+    <Property Name="hataid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hatamesaji" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="ilac">
+    <Key>
+      <PropertyRef Name="ilacid" />
+    </Key>
+    <Property Name="ilacid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ilacad" Type="varchar" MaxLength="50" />
+    <Property Name="ilacicerik" Type="varchar" MaxLength="60" />
+    <Property Name="ilacbarkod" Type="varchar" MaxLength="14" />
+  </EntityType>
+  <EntityType Name="iller">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sehiradi" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="islemler">
+    <Key>
+      <PropertyRef Name="islemid" />
+    </Key>
+    <Property Name="islemid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="muayeneid" Type="int" />
+    <Property Name="hastaadisoyadi" Type="varchar" MaxLength="100" />
+    <Property Name="hastatc" Type="varchar" MaxLength="11" />
+    <Property Name="tetkikid" Type="int" />
+    <Property Name="ilac" Type="varchar" MaxLength="500" />
+    <Property Name="ilacadet" Type="int" />
+    <Property Name="islemtarihi" Type="datetime" />
+    <Property Name="yatis" Type="bit" />
+    <Property Name="islemiyapan" Type="int" />
+    <Property Name="kullanici" Type="int" />
+  </EntityType>
+  <EntityType Name="izin">
+    <Key>
+      <PropertyRef Name="izinid" />
+    </Key>
+    <Property Name="izinid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personelid" Type="int" />
+    <Property Name="izinbaslangic" Type="datetime" />
+    <Property Name="izinbitis" Type="datetime" />
+    <Property Name="izindekiadres" Type="varchar" MaxLength="200" />
+    <Property Name="izinturu" Type="int" />
+    <Property Name="onaylandimi" Type="bit" />
+  </EntityType>
+  <EntityType Name="izintur">
+    <Key>
+      <PropertyRef Name="turid" />
+    </Key>
+    <Property Name="turid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tur" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="kanGrubu">
+    <Key>
+      <PropertyRef Name="kangrubuID" />
+    </Key>
+    <Property Name="kangrubuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kangrubuAdi" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="klinik">
+    <Key>
+      <PropertyRef Name="klinikid" />
+    </Key>
+    <Property Name="klinikid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="klinik" Type="varchar" MaxLength="50" />
+    <Property Name="yataksayi" Type="int" />
+    <Property Name="hastane" Type="int" />
+  </EntityType>
+  <EntityType Name="kullanici_Yetki">
+    <Key>
+      <PropertyRef Name="kullaniciid" />
+    </Key>
+    <Property Name="kullaniciid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personelid" Type="int" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="soyad" Type="varchar" MaxLength="50" />
+    <Property Name="cinsiyet" Type="varchar" MaxLength="5" />
+    <Property Name="sifre" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="hastakayit" Type="bit" />
+    <Property Name="klinik" Type="bit" />
+    <Property Name="eczane" Type="bit" />
+    <Property Name="vezne" Type="bit" />
+    <Property Name="kullaniciRol" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="mesajgiden">
+    <Key>
+      <PropertyRef Name="gidenmesajid" />
+    </Key>
+    <Property Name="gidenmesajid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mesaj" Type="varchar" MaxLength="250" />
+    <Property Name="kimdenid" Type="int" />
+    <Property Name="kimeid" Type="int" />
+    <Property Name="tarih" Type="datetime" />
+    <Property Name="cevaplananmesaj" Type="int" />
+  </EntityType>
+  <EntityType Name="muayene">
+    <Key>
+      <PropertyRef Name="muayeneid" />
+    </Key>
+    <Property Name="muayeneid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hastaid" Type="int" />
+    <Property Name="muayenetarih" Type="date" />
+    <Property Name="poliklinik" Type="int" />
+    <Property Name="teshis" Type="varchar" MaxLength="150" />
+    <Property Name="yatis" Type="bit" />
+    <Property Name="yatistarihi" Type="datetime" />
+    <Property Name="yatisbitistarihi" Type="datetime" />
+    <Property Name="randevusaat" Type="varchar" MaxLength="11" />
+    <Property Name="muayenebaslangici" Type="datetime" />
+    <Property Name="muayenebitisi" Type="datetime" />
+    <Property Name="muayeneonay" Type="bit" />
+    <Property Name="kullanici" Type="int" />
+    <Property Name="randevuid" Type="int" />
+    <Property Name="cikisonay" Type="bit" />
+  </EntityType>
+  <EntityType Name="personel">
+    <Key>
+      <PropertyRef Name="personelid" />
+    </Key>
+    <Property Name="personelid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tc" Type="varchar" MaxLength="11" />
+    <Property Name="ad" Type="varchar" MaxLength="50" />
+    <Property Name="soyad" Type="varchar" MaxLength="50" />
+    <Property Name="ceptel" Type="varchar" MaxLength="11" />
+    <Property Name="adres" Type="varchar" MaxLength="250" />
+    <Property Name="dtarih" Type="date" />
+    <Property Name="sicilno" Type="varchar" MaxLength="50" />
+    <Property Name="unvan" Type="int" />
+    <Property Name="diplomano" Type="varchar" MaxLength="50" />
+    <Property Name="mezuniyet" Type="varchar" MaxLength="50" />
+    <Property Name="kullanilanizin" Type="int" />
+    <Property Name="kalanizin" Type="int" />
+    <Property Name="cinsiyet" Type="varchar" MaxLength="5" />
+    <Property Name="izinbitis" Type="date" />
+  </EntityType>
+  <EntityType Name="randevu">
+    <Key>
+      <PropertyRef Name="randevuid" />
+    </Key>
+    <Property Name="randevuid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adsyad" Type="varchar" MaxLength="70" />
+    <Property Name="hastaid" Type="int" />
+    <Property Name="saat" Type="int" />
+    <Property Name="doktorid" Type="int" />
+    <Property Name="klinikid" Type="int" />
+    <Property Name="geldimi" Type="bit" />
+    <Property Name="tarih" Type="datetime" />
+  </EntityType>
+  <EntityType Name="recete">
+    <Key>
+      <PropertyRef Name="receteid" />
+    </Key>
+    <Property Name="receteid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ilackodu" Type="varchar" MaxLength="80" />
+    <Property Name="hastaad" Type="varchar" MaxLength="50" />
+    <Property Name="hastatc" Type="varchar" MaxLength="11" />
+    <Property Name="recetekodu" Type="varchar" MaxLength="30" />
+    <Property Name="recetetarih" Type="datetime" />
+    <Property Name="ilacadet" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="saat">
+    <Key>
+      <PropertyRef Name="saatid" />
+    </Key>
+    <Property Name="saatid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="saatzaman" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="teshis">
+    <Key>
+      <PropertyRef Name="teshisid" />
+    </Key>
+    <Property Name="teshisid" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="teshis" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="unvan">
+    <Key>
+      <PropertyRef Name="kadroid" />
+    </Key>
+    <Property Name="kadroid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="unvan" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_doktor_klinik1">
+    <End Role="klinik" Type="Self.klinik" Multiplicity="0..1" />
+    <End Role="doktor" Type="Self.doktor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klinik">
+        <PropertyRef Name="klinikid" />
+      </Principal>
+      <Dependent Role="doktor">
+        <PropertyRef Name="klinik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_doktor_personel">
+    <End Role="personel" Type="Self.personel" Multiplicity="0..1" />
+    <End Role="doktor" Type="Self.doktor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel">
+        <PropertyRef Name="personelid" />
+      </Principal>
+      <Dependent Role="doktor">
+        <PropertyRef Name="personelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hasta_kanGrubu">
+    <End Role="kanGrubu" Type="Self.kanGrubu" Multiplicity="0..1" />
+    <End Role="hasta" Type="Self.hasta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kanGrubu">
+        <PropertyRef Name="kangrubuID" />
+      </Principal>
+      <Dependent Role="hasta">
+        <PropertyRef Name="kanGrubu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hasta_kullanici_Yetki">
+    <End Role="kullanici_Yetki" Type="Self.kullanici_Yetki" Multiplicity="0..1" />
+    <End Role="hasta" Type="Self.hasta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici_Yetki">
+        <PropertyRef Name="kullaniciid" />
+      </Principal>
+      <Dependent Role="hasta">
+        <PropertyRef Name="kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hasta_randevu">
+    <End Role="randevu" Type="Self.randevu" Multiplicity="0..1" />
+    <End Role="hasta" Type="Self.hasta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="randevu">
+        <PropertyRef Name="randevuid" />
+      </Principal>
+      <Dependent Role="hasta">
+        <PropertyRef Name="randevuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hastane_iller">
+    <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+    <End Role="hastane" Type="Self.hastane" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="iller">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="hastane">
+        <PropertyRef Name="ilid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_islemler_kullanici_Yetki">
+    <End Role="kullanici_Yetki" Type="Self.kullanici_Yetki" Multiplicity="0..1" />
+    <End Role="islemler" Type="Self.islemler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici_Yetki">
+        <PropertyRef Name="kullaniciid" />
+      </Principal>
+      <Dependent Role="islemler">
+        <PropertyRef Name="kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_islemler_muayene">
+    <End Role="muayene" Type="Self.muayene" Multiplicity="0..1" />
+    <End Role="islemler" Type="Self.islemler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="muayene">
+        <PropertyRef Name="muayeneid" />
+      </Principal>
+      <Dependent Role="islemler">
+        <PropertyRef Name="muayeneid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_izin_izintur">
+    <End Role="izintur" Type="Self.izintur" Multiplicity="0..1" />
+    <End Role="izin" Type="Self.izin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="izintur">
+        <PropertyRef Name="turid" />
+      </Principal>
+      <Dependent Role="izin">
+        <PropertyRef Name="izinturu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_izin_personel">
+    <End Role="personel" Type="Self.personel" Multiplicity="0..1" />
+    <End Role="izin" Type="Self.izin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel">
+        <PropertyRef Name="personelid" />
+      </Principal>
+      <Dependent Role="izin">
+        <PropertyRef Name="personelid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_klinik_hastane">
+    <End Role="hastane" Type="Self.hastane" Multiplicity="0..1" />
+    <End Role="klinik" Type="Self.klinik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hastane">
+        <PropertyRef Name="hastaneid" />
+      </Principal>
+      <Dependent Role="klinik">
+        <PropertyRef Name="hastane" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kullanici_Yetki_personel">
+    <End Role="personel" Type="Self.personel" Multiplicity="0..1" />
+    <End Role="kullanici_Yetki" Type="Self.kullanici_Yetki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personel">
+        <PropertyRef Name="personelid" />
+      </Principal>
+      <Dependent Role="kullanici_Yetki">
+        <PropertyRef Name="personelid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mesajgiden_doktor">
+    <End Role="doktor" Type="Self.doktor" Multiplicity="0..1" />
+    <End Role="mesajgiden" Type="Self.mesajgiden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="doktor">
+        <PropertyRef Name="drid" />
+      </Principal>
+      <Dependent Role="mesajgiden">
+        <PropertyRef Name="kimeid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_muayene_hasta1">
+    <End Role="hasta" Type="Self.hasta" Multiplicity="0..1" />
+    <End Role="muayene" Type="Self.muayene" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hasta">
+        <PropertyRef Name="hastaid" />
+      </Principal>
+      <Dependent Role="muayene">
+        <PropertyRef Name="hastaid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_muayene_klinik">
+    <End Role="klinik" Type="Self.klinik" Multiplicity="0..1" />
+    <End Role="muayene" Type="Self.muayene" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klinik">
+        <PropertyRef Name="klinikid" />
+      </Principal>
+      <Dependent Role="muayene">
+        <PropertyRef Name="poliklinik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_muayene_kullanici_Yetki">
+    <End Role="kullanici_Yetki" Type="Self.kullanici_Yetki" Multiplicity="0..1" />
+    <End Role="muayene" Type="Self.muayene" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanici_Yetki">
+        <PropertyRef Name="kullaniciid" />
+      </Principal>
+      <Dependent Role="muayene">
+        <PropertyRef Name="kullanici" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personel_unvan">
+    <End Role="unvan" Type="Self.unvan" Multiplicity="0..1" />
+    <End Role="personel" Type="Self.personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unvan">
+        <PropertyRef Name="kadroid" />
+      </Principal>
+      <Dependent Role="personel">
+        <PropertyRef Name="unvan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_randevu_saat">
+    <End Role="saat" Type="Self.saat" Multiplicity="0..1" />
+    <End Role="randevu" Type="Self.randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="saat">
+        <PropertyRef Name="saatid" />
+      </Principal>
+      <Dependent Role="randevu">
+        <PropertyRef Name="saat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HastaneModelStoreContainer">
+    <EntitySet Name="doktor" EntityType="Self.doktor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hasta" EntityType="Self.hasta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hastane" EntityType="Self.hastane" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hata" EntityType="Self.hata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ilac" EntityType="Self.ilac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="islemler" EntityType="Self.islemler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="izin" EntityType="Self.izin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="izintur" EntityType="Self.izintur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kanGrubu" EntityType="Self.kanGrubu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="klinik" EntityType="Self.klinik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanici_Yetki" EntityType="Self.kullanici_Yetki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mesajgiden" EntityType="Self.mesajgiden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="muayene" EntityType="Self.muayene" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="personel" EntityType="Self.personel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="randevu" EntityType="Self.randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="recete" EntityType="Self.recete" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="saat" EntityType="Self.saat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="teshis" EntityType="Self.teshis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="unvan" EntityType="Self.unvan" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_doktor_klinik1" Association="Self.FK_doktor_klinik1">
+      <End Role="klinik" EntitySet="klinik" />
+      <End Role="doktor" EntitySet="doktor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_doktor_personel" Association="Self.FK_doktor_personel">
+      <End Role="personel" EntitySet="personel" />
+      <End Role="doktor" EntitySet="doktor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hasta_kanGrubu" Association="Self.FK_hasta_kanGrubu">
+      <End Role="kanGrubu" EntitySet="kanGrubu" />
+      <End Role="hasta" EntitySet="hasta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hasta_kullanici_Yetki" Association="Self.FK_hasta_kullanici_Yetki">
+      <End Role="kullanici_Yetki" EntitySet="kullanici_Yetki" />
+      <End Role="hasta" EntitySet="hasta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hasta_randevu" Association="Self.FK_hasta_randevu">
+      <End Role="randevu" EntitySet="randevu" />
+      <End Role="hasta" EntitySet="hasta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hastane_iller" Association="Self.FK_hastane_iller">
+      <End Role="iller" EntitySet="iller" />
+      <End Role="hastane" EntitySet="hastane" />
+    </AssociationSet>
+    <AssociationSet Name="FK_islemler_kullanici_Yetki" Association="Self.FK_islemler_kullanici_Yetki">
+      <End Role="kullanici_Yetki" EntitySet="kullanici_Yetki" />
+      <End Role="islemler" EntitySet="islemler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_islemler_muayene" Association="Self.FK_islemler_muayene">
+      <End Role="muayene" EntitySet="muayene" />
+      <End Role="islemler" EntitySet="islemler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_izin_izintur" Association="Self.FK_izin_izintur">
+      <End Role="izintur" EntitySet="izintur" />
+      <End Role="izin" EntitySet="izin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_izin_personel" Association="Self.FK_izin_personel">
+      <End Role="personel" EntitySet="personel" />
+      <End Role="izin" EntitySet="izin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_klinik_hastane" Association="Self.FK_klinik_hastane">
+      <End Role="hastane" EntitySet="hastane" />
+      <End Role="klinik" EntitySet="klinik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kullanici_Yetki_personel" Association="Self.FK_kullanici_Yetki_personel">
+      <End Role="personel" EntitySet="personel" />
+      <End Role="kullanici_Yetki" EntitySet="kullanici_Yetki" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mesajgiden_doktor" Association="Self.FK_mesajgiden_doktor">
+      <End Role="doktor" EntitySet="doktor" />
+      <End Role="mesajgiden" EntitySet="mesajgiden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_muayene_hasta1" Association="Self.FK_muayene_hasta1">
+      <End Role="hasta" EntitySet="hasta" />
+      <End Role="muayene" EntitySet="muayene" />
+    </AssociationSet>
+    <AssociationSet Name="FK_muayene_klinik" Association="Self.FK_muayene_klinik">
+      <End Role="klinik" EntitySet="klinik" />
+      <End Role="muayene" EntitySet="muayene" />
+    </AssociationSet>
+    <AssociationSet Name="FK_muayene_kullanici_Yetki" Association="Self.FK_muayene_kullanici_Yetki">
+      <End Role="kullanici_Yetki" EntitySet="kullanici_Yetki" />
+      <End Role="muayene" EntitySet="muayene" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personel_unvan" Association="Self.FK_personel_unvan">
+      <End Role="unvan" EntitySet="unvan" />
+      <End Role="personel" EntitySet="personel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_randevu_saat" Association="Self.FK_randevu_saat">
+      <End Role="saat" EntitySet="saat" />
+      <End Role="randevu" EntitySet="randevu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

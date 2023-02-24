@@ -1,0 +1,101 @@
+﻿@using Hastane.Models.Entity
+@model List<muayene>
+@{
+    ViewBag.Title = "HastaRandevuListele";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/Hasta Muayene Geçmişi</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+        @using (Html.BeginForm("Hastalarim", "Doktor", FormMethod.Get))
+        {
+            <p>
+                Aranacak Hasta Adı: @Html.TextBox("hastaad")
+                <input type="submit" value="Ara" />
+            </p>
+        }
+        @using (Html.BeginForm("Hastalarim", "Doktor", FormMethod.Get))
+        {
+            <p>
+                TC ile ara: @Html.TextBox("hastatc")
+                <input type="submit" value="Ara" />
+            </p>
+        }
+    <div class="row">
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                   Hasta Adı
+                </a>
+                @foreach (var hasta in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.hasta.ad) @Html.DisplayFor(modelItem => hasta.hasta.soyad)</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                  Hasta TC
+                </a>
+                @foreach (var hasta in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.hasta.tc)</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Muayene Tarihi
+                </a>
+                @foreach (var hasta in Model)
+                {
+                    string tarih = hasta.muayenetarih.ToString();
+                    string[] dizi = tarih.Split(' ');
+                    string tut = dizi[0];
+                    <a href="#" class="list-group-item list-group-item-action">@tut</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Teşhis
+                </a>
+                @foreach (var hasta in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.teshis)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Muayene Detay
+                </a>
+                @foreach (var hasta in Model)
+                {
+                    @Html.ActionLink("Detay", "HastaMuayeneDetay", "Doktor", new { muayeneID = hasta.muayeneid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+
+    </div>
+    </div>
+    @ViewBag.randevuYok
+</div>
+
+

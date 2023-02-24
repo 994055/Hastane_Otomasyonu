@@ -1,0 +1,167 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Eczane</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <script type="text/javascript" src="/Tasarim/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="/Tasarim/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/Tasarim/js/plugins.js"></script>
+    <script type="text/javascript" src="/Tasarim/js/gezi.js"></script>
+
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
+    @Styles.Render("~Content/css")
+    @Scripts.Render("~bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+            <a href="#" class="brand-link">
+                <img src="~/AdminLTE-3.0.4/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">Eczane</span>
+            </a>
+
+            <div class="sidebar">
+
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        @if (Session["PersonelCinsiyet"].ToString() == "Erkek")
+                        {
+                            <img src="~/AdminLTE-3.0.4/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        }
+                        else
+                        {
+                            <img src="~/AdminLTE-3.0.4/dist/img/user4-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+                        }
+
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">@Session["PersonelAd"] </a>
+                    </div>
+                </div>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <li class="nav-item has-treeview">
+                            <p class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                @Html.ActionLink("Anasayfa", "Anasayfa", "Eczaci")
+                            </p>
+                        </li>
+                        @if (User.IsInRole("E"))
+                        {
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon fas fa-user-injured"></i>
+                                    @Html.ActionLink("Reçeteli İlaç Ver", "ilacVer", "Eczaci")
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon fas fa-user-injured"></i>
+                                    @Html.ActionLink("İlaç Ver", "ilacVerRecetesiz", "Eczaci")
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon fas fa-calendar-alt"></i>
+                                    @Html.ActionLink("İlaç Fatura", "Faturalar", "Eczaci")
+                                </p>
+                            </li>
+                        }
+
+
+
+                        @if (User.IsInRole("Y"))
+                        {
+
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon fas fa-user-md"></i>
+                                    @Html.ActionLink("Personeller", "PersonelListele", "Yonetici")
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    @Html.ActionLink("Personel Ekle", "PersonelEkle", "Yonetici")
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon fas fa-pills"></i>
+                                    @Html.ActionLink("İlaç Stok Görüntüle", "ilacStok", "Yonetici")
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    @Html.ActionLink("İlaç Ekle", "ilacEkle", "Yonetici")
+                                </p>
+                            </li>
+                            <li class="nav-item">
+                                <p class="nav-link">
+                                    <i class="nav-icon fas fa-pills"></i>
+                                    @Html.ActionLink("İlaçlar", "ilacListele", "Yonetici")
+                                </p>
+                            </li>
+
+                        }
+                        <li class="nav-item has-treeview">
+                            <p class="nav-link">
+                                <i class="nav-icon fas fa-door-open"></i>
+                                @Html.ActionLink("Çıkış", "Cikis", "Eczaci")
+                            </p>
+
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </aside>
+
+        <div class="content-wrapper">
+
+            <div class="content">
+                @RenderBody()
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="/Tasarim/js/switcher/switcher.js"></script>
+    <link href="/Tasarim/js/switcher/switcher.css" rel="stylesheet">
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
+
+</body>
+</html>

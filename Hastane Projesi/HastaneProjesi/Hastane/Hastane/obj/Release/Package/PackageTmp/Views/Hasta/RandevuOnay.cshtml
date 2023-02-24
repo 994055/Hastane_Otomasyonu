@@ -1,0 +1,115 @@
+﻿@using Hastane.Models.Entity
+@{
+    ViewBag.Title = "Randevu";
+    Layout = "~/Views/Shared/_LayoutHasta.cshtml";
+
+    HastaneEntities2 hs = new HastaneEntities2();
+
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Randevu Onay</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Hasta")</li>
+        <li>@Html.ActionLink("Randevu Al", "Randevu", "Hasta")</li>
+        <li class="active">/Randevu Onay</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+        @using (Html.BeginForm("RandevuOnay", "Hasta", FormMethod.Post))
+        {
+
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Şehir İsmi</span>
+                </div>
+                @{
+                    int sehirid = Convert.ToInt32(TempData["ilID"]);
+                    var sehir = hs.iller.Find(sehirid);
+                }
+                @Html.TextBox("sehirid", sehir.sehiradi, new { @class = "form-control", @type = "text", @placeholder = "Şehir Giriniz", @required = "", @maxlength = "50", @readonly = "readonly" })
+
+
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Hastane İsmi</span>
+                </div>
+                @{
+                    int hastaneid = Convert.ToInt32(TempData["hastaneID"]);
+                    var hastane = hs.hastane.Find(hastaneid);
+                }
+                @Html.TextBox("hastaneid", hastane.hastaneadi, new { @class = "form-control", @type = "text", @placeholder = "Hastane Giriniz", @required = "", @maxlength = "50", @readonly = "readonly" })
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Klinik İsmi</span>
+                </div>
+                @{
+                    int klinikid = Convert.ToInt32(TempData["klinikID"]);
+                    var klinik = hs.klinik.Find(klinikid);
+                }
+                @Html.TextBox("klinik1", klinik.klinik1.ToString(), new { @class = "form-control", @type = "text", @placeholder = "Klinik Giriniz", @required = "", @maxlength = "50", @readonly = "readonly" })
+                @Html.Hidden("klinikid", klinikid)
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Doktor İsmi</span>
+                </div>
+                @{
+                    int drid = Convert.ToInt32(TempData["drid"]);
+                    var doktor = hs.doktor.Find(drid);
+                }
+                @Html.TextBox("doktor", doktor.ad + " " + doktor.soyad, new { @class = "form-control", @type = "text", @placeholder = "Doktor Giriniz", @required = "", @maxlength = "50", @readonly = "readonly" })
+                @Html.Hidden("doktorid", drid)
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Tarih</span>
+                </div>
+                @{
+                    DateTime tarih = Convert.ToDateTime(TempData["tarih"]);
+                    string tarihtut = tarih.ToString();
+                    var tut = tarihtut.Split(' ');
+                    string asilTarih = tut[0];
+
+                }
+                @Html.TextBox("tarih", asilTarih, new { @class = "form-control", @type = "text", @placeholder = "Tarih Giriniz", @required = "", @maxlength = "50", @readonly = "readonly" })
+                @Html.Hidden("tarihDate", tarih)
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Randevu Saati</span>
+                </div>
+                @Html.DropDownList("saat", (List<SelectListItem>)ViewBag.saatlistesi, new { @class = "form-control", @placeholder = "Saat Seçiniz", @required = "",@id="saat" })
+
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" id="btnRandevu" type="submit">Randevu Saatini Onayla</button>
+        }
+
+        <script>
+            $(function () {
+                $('#btnrandevu').click(function () {
+                    if ($.trim($("#saat").val()) != "") {
+                        alert('Randevu alma işlemi başarıyla gerçekleşti');
+                    }
+                });
+            });
+        </script>
+
+    </div>
+
+
+</div>

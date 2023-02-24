@@ -1,0 +1,99 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.doktorList
+@{
+    ViewBag.Title = "DoktorIzin";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/Doktor İzin</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Personel Adı
+                </a>
+                @foreach (var personel in Model.izinListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.personel.ad) @Html.DisplayFor(modelItem => personel.personel.soyad)</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İzin Türü
+                </a>
+                @foreach (var personel in Model.izinListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.izintur.tur)  </a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İzindeki Adres
+                </a>
+                @foreach (var personel in Model.izinListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.izindekiadres)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active " aria-current="true">
+                    İzin Başlangıç Tarihi
+                </a>
+                @foreach (var personel in Model.izinListesi)
+                {
+                    string tut = personel.izinbaslangic.ToString();
+                    var dizi = tut.Split(' ');
+                    <a href="#" class="list-group-item list-group-item-action">@dizi[0]</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active " aria-current="true">
+                    İzin Bitiş Tarihi
+                </a>
+                @foreach (var personel in Model.izinListesi)
+                {
+                    string tut = personel.izinbitis.ToString();
+                    var dizi = tut.Split(' ');
+            <a href="#" class="list-group-item list-group-item-action">@dizi[0]</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İzin
+                </a>
+                @foreach (var personel in Model.izinListesi)
+                {
+                    @Html.ActionLink("İzin Ver", "Doktorizinver", "Yonetici", new { personelID = personel.personelid, izinbitis = personel.izinbitis,izinbas = personel.izinbaslangic }, new { @class = "list-group-item list-group-item-action list-group-item-success active", onclick = "return confirm('İzin vermek istediğinize emin misiniz? ')" })
+                }
+            </div>
+        </div>
+    </div>
+     
+</div>

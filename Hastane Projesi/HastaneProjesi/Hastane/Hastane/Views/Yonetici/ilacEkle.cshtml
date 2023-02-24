@@ -1,0 +1,65 @@
+﻿@model Hastane.Models.ViewModels
+@{
+    ViewBag.Title = "İlaçEkle";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+ 
+
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">İlaç Ekle</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/İlaç Ekle</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+        <p style="color:red">@ViewBag.hataliekleme</p>
+
+        @using (Html.BeginForm("ilacEkle", "Yonetici", FormMethod.Post))
+        {
+
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç İsmi</span>
+                </div>
+                @Html.TextBox("ilacad", "", new { @class = "form-control", @type = "text", @placeholder = "İlaç İsmi Giriniz", @required = "", @maxlength = "50", @id = "ilacad" })
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">İlaç Barkod</span>
+                </div>
+                @Html.TextBox("ilacbarkod", "", new { @class = "form-control", @type = "number", @placeholder = "İlaç Barkod Giriniz", @required = "", @maxlength = "13", @id = "ilacbarkod" })
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" id="btnhstEkle" type="submit">İlaç Ekle</button>
+
+        }
+
+        <script>
+            $(function () {
+                $('#btnhstEkle').click(function () {
+                    if ($.trim($("#ilacad").val()) != "" || $.trim($("#ilacbarkod").val()) != "") {
+                        alert('İlaç kaydı başarıyla gerçekleşti');
+                    }
+                });
+            });
+        </script>
+
+    </div>
+</div>
+

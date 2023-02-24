@@ -1,0 +1,130 @@
+﻿@using Eczane.Models.Entity
+@model Eczane.Models.stokList
+
+@{
+    ViewBag.Title = "İlaçVer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    eczaneEntities ec = new eczaneEntities();
+    double tutar;
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<div class="container container-int">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="col-lg-12">
+                <h1 class="page-header">İlaç Ver</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Anasayfa", "Eczaci")</li>
+        <li class="active">/İlaç Ver</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+        @using (Html.BeginForm("ilacVerRecetesiz", "Eczaci", FormMethod.Get))
+        {
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:170px">Kaç Adet İlaç Verilecek</span>
+                </div>
+                @Html.DropDownList("kacAdet",
+                                                new List<SelectListItem> {
+                                               new SelectListItem {
+                                                  Text="1",
+                                                  Value="1",
+                                                  Selected = true
+                                               },
+                                               new SelectListItem {
+                                                  Text="2",
+                                                  Value="2",
+                                                  Selected = false
+                                               },
+                                                 new SelectListItem {
+                                                  Text="3",
+                                                  Value="3",
+                                                  Selected = false
+                                               },
+                                                   new SelectListItem {
+                                                  Text="4",
+                                                  Value="4",
+                                                  Selected = false
+                                               },
+                                                     new SelectListItem {
+                                                  Text="5",
+                                                  Value="5",
+                                                  Selected = false
+                                               },
+                                                       new SelectListItem {
+                                                  Text="6",
+                                                  Value="6",
+                                                  Selected = false
+                                               },
+                                                         new SelectListItem {
+                                                  Text="7",
+                                                  Value="7",
+                                                  Selected = false
+                                               }
+
+                                                }, "İlaç Adeti", new { @class = "form-control" })
+                <input type="submit" value="Seç" />
+            </div>
+        }
+
+
+        @using (Html.BeginForm("ilacVerRecetesizOnay", "Eczaci", FormMethod.Get))
+        {
+
+            {
+                int kacadet = 0;
+                if (ViewBag.kacadet != null)
+                {
+                    kacadet = Convert.ToInt32(ViewBag.kacadet);
+                    @Html.Hidden("kacadet", kacadet)
+                }
+
+                for (int i = 1; i <= kacadet; i++)
+                {
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="width:150px">İlaç İsmi</span>
+                        </div>
+                        @Html.DropDownList("ilac" + i, Model.ilac, "---İlaç Seçiniz---", new { @class = "form-control" })
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="width:80px">İlaç Adeti</span>
+                        </div>
+                        @Html.TextBox("ilacadet" + i, " ", new { @class = "form-control", @type = "number", @placeholder = "İlaç adeti giriniz", @maxlength = "50", @required = "" })
+                    </div>
+                }
+
+            }
+    <div class="input-group ">
+        <div class="input-group-prepend">
+            <span class="input-group-text" style="width:150px">Hasta Adı</span>
+        </div>
+      
+            @Html.TextBox("hastaad", "", new { @class = "form-control", @type = "text", @placeholder = "Hasta Adı Giriniz", @required = "", @maxlength = "120", @id = "ilac_barkod" })
+     
+
+    </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">TC</span>
+                </div>
+
+                @Html.TextBox("hastatc", "", new { @class = "form-control", @type = "number", @placeholder = "Hasta TC Giriniz", @required = "", @onKeyPress = "if(this.value.length==11) return false;", @id = "ilac_barkod" })
+
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" id="btnilacver" type="submit">İlaç Ver</button>
+        }
+
+
+
+    </div>
+
+
+</div>

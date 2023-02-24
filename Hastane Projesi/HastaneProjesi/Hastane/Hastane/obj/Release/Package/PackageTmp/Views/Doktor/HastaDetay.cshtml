@@ -1,0 +1,116 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.randevuList
+@{
+    ViewBag.Title = "HastaDetay";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Index", "Doktor")</li>
+        <li>@Html.ActionLink("Randevu Alan Hastalar", "HastaRandevuListele", "Doktor")</li>
+        <li class="active">/Hasta Detay</li>
+    </ol>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.ad) @Html.DisplayFor(modelItem => hasta.soyad)</a>
+                    }
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-primary">
+                <th scope="row">TC</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.tc)</a>
+                    }
+                </td>
+
+            </tr>
+
+            <tr class="table-primary">
+                <th scope="row">Doğum Tarihi</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.dtarih)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Kan Grubu</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.kanGrubu1.kangrubuAdi)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Cinsiyet</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.cinsiyet)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Baba Adı</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.babaad)</a>
+                    }
+                </td>
+
+            </tr>
+
+            <tr class="table-primary">
+                <th scope="row">Anne Adı</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.annead)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Cep Telefonu</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.ceptel)</a>
+                    }
+                </td>
+
+            </tr>
+            <tr class="table-primary">
+                <th scope="row">Adres</th>
+                <td>
+                    @foreach (var hasta in Model.hastaListesi)
+                    {
+                        <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.adres)</a>
+                    }
+                </td>
+
+            </tr>
+           
+        </tbody>
+    </table>
+
+</div>
+

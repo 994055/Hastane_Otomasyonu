@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eczaneModelStoreContainer" CdmEntityContainer="eczaneEntities">
+    <EntitySetMapping Name="fatura">
+      <EntityTypeMapping TypeName="eczaneModel.fatura">
+        <MappingFragment StoreEntitySet="fatura">
+          <ScalarProperty Name="fatura_id" ColumnName="fatura_id" />
+          <ScalarProperty Name="hasta_ad" ColumnName="hasta_ad" />
+          <ScalarProperty Name="hasta_tc" ColumnName="hasta_tc" />
+          <ScalarProperty Name="hasta_odeme_turu" ColumnName="hasta_odeme_turu" />
+          <ScalarProperty Name="odenen_tutar" ColumnName="odenen_tutar" />
+          <ScalarProperty Name="satilanilac" ColumnName="satilanilac" />
+          <ScalarProperty Name="fatura_traihi" ColumnName="fatura_traihi" />
+          <ScalarProperty Name="faturayikesenid" ColumnName="faturayikesenid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilac">
+      <EntityTypeMapping TypeName="eczaneModel.ilac">
+        <MappingFragment StoreEntitySet="ilac">
+          <ScalarProperty Name="ilac_id" ColumnName="ilac_id" />
+          <ScalarProperty Name="ilac_ad" ColumnName="ilac_ad" />
+          <ScalarProperty Name="ilac_barkod" ColumnName="ilac_barkod" />
+          <ScalarProperty Name="ilacadet" ColumnName="ilacadet" />
+          <ScalarProperty Name="ilacfiyat" ColumnName="ilacfiyat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kullanici_yetki">
+      <EntityTypeMapping TypeName="eczaneModel.kullanici_yetki">
+        <MappingFragment StoreEntitySet="kullanici_yetki">
+          <ScalarProperty Name="kullanici_id" ColumnName="kullanici_id" />
+          <ScalarProperty Name="kullanici_ad" ColumnName="kullanici_ad" />
+          <ScalarProperty Name="personel_id" ColumnName="personel_id" />
+          <ScalarProperty Name="kullanici_soyad" ColumnName="kullanici_soyad" />
+          <ScalarProperty Name="kullanici_email" ColumnName="kullanici_email" />
+          <ScalarProperty Name="kullanici_sifre" ColumnName="kullanici_sifre" />
+          <ScalarProperty Name="kullanicirol" ColumnName="kullanicirol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personel">
+      <EntityTypeMapping TypeName="eczaneModel.personel">
+        <MappingFragment StoreEntitySet="personel">
+          <ScalarProperty Name="personelid" ColumnName="personelid" />
+          <ScalarProperty Name="tc" ColumnName="tc" />
+          <ScalarProperty Name="ad" ColumnName="ad" />
+          <ScalarProperty Name="soyad" ColumnName="soyad" />
+          <ScalarProperty Name="dtarih" ColumnName="dtarih" />
+          <ScalarProperty Name="adres" ColumnName="adres" />
+          <ScalarProperty Name="ceptel" ColumnName="ceptel" />
+          <ScalarProperty Name="diplomano" ColumnName="diplomano" />
+          <ScalarProperty Name="mezuniyet" ColumnName="mezuniyet" />
+          <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+          <ScalarProperty Name="kullanilanizin" ColumnName="kullanilanizin" />
+          <ScalarProperty Name="kalanizin" ColumnName="kalanizin" />
+          <ScalarProperty Name="izinbitis" ColumnName="izinbitis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recete">
+      <EntityTypeMapping TypeName="eczaneModel.recete">
+        <MappingFragment StoreEntitySet="recete">
+          <ScalarProperty Name="receteid" ColumnName="receteid" />
+          <ScalarProperty Name="hastaad" ColumnName="hastaad" />
+          <ScalarProperty Name="hastatc" ColumnName="hastatc" />
+          <ScalarProperty Name="ilacbarkod" ColumnName="ilacbarkod" />
+          <ScalarProperty Name="recetekodu" ColumnName="recetekodu" />
+          <ScalarProperty Name="recetetarih" ColumnName="recetetarih" />
+          <ScalarProperty Name="ilacadet" ColumnName="ilacadet" />
+          <ScalarProperty Name="ilacVerildiMi" ColumnName="ilacVerildiMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

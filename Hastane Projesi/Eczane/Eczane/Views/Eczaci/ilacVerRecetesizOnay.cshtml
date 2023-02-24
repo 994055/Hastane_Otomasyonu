@@ -1,0 +1,110 @@
+﻿@using Eczane.Models.Entity
+@model Eczane.Models.stokList
+
+
+@{
+    ViewBag.Title = "Hastamuayene";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    eczaneEntities ec = new eczaneEntities();
+    double tutar = 0;
+    int foricin = Convert.ToInt32(TempData["foricin"]);
+ 
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<div class="container container-int">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="col-lg-12">
+                <h1 class="page-header">İlaç Ver</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Anasayfa", "Eczaci")</li>
+        <li>@Html.ActionLink("İlaç Ver", "ilacVer", "Eczaci")</li>
+        <li class="active">/İlaç Ver Onay</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+        @using (Html.BeginForm("ilacVerRecetesizOnay", "Eczaci", FormMethod.Post))
+        {
+
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Hasta Adı</span>
+                </div>
+                @Html.TextBox("hastaad", TempData["hastaad"], new { @class = "form-control", @type = "text", @placeholder = "Hasta Ad Giriniz", @required = "", @maxlength = "50", @readonly = "readonly" })
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Hasta Adı</span>
+                </div>
+                @Html.TextBox("hastatc", TempData["hastatc"], new { @class = "form-control", @type = "text", @placeholder = "Hasta tc Giriniz", @required = "", @maxlength = "11", @readonly = "readonly" })
+            </div>
+
+
+            for (int i = 1; i <= foricin; i++)
+            {
+                int ilacbarkod = Convert.ToInt32(TempData["ilacID" + i]);
+                var ilac = ec.ilac.Find(ilacbarkod);
+                int ilacadet = Convert.ToInt32(TempData["ilacadet" + i]);
+
+
+                TempData["id" + i] = ilac.ilac_id;
+                TempData["ilacadeti" + i] = ilacadet;
+                TempData["ilacismi" + i] = ilac.ilac_ad;
+                <div class="input-group ">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="width:150px">İlaç İsmi ve Adeti</span>
+                    </div>
+                    @Html.TextBox("ilacismi", TempData["ilacad" + i] + "   -    " + TempData["ilacadet" + i], new { @class = "form-control", @type = "text", @placeholder = "Teşhis Giriniz", @required = "", @maxlength = "50", @readonly = "readonly" })
+
+                    <a href="#" class="form-control" style="width:10px">İlaç Fiyatı: @ilac.ilacfiyat TL</a>
+                    @if (ilac.ilacadet < ilacadet)
+                    {
+                        <a href="#" class="form-control" style="width:10px"><p style="color:red">Stokta Yok</p></a>
+                        TempData["stokyok" + i] = ilac.ilac_id;
+                    }
+                    else
+                    {
+                        <a href="#" class="form-control" style="width:20px">Stokta @ilac.ilacadet adet var.</a>
+                        tutar += (Convert.ToDouble(ilac.ilacfiyat) * ilacadet);
+                    }
+                </div>
+
+
+            }
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Hastanın Ödeyeceği Tutar</span>
+                </div>
+                @Html.TextBox("ilactutari", tutar + " TL", new { @class = "form-control", @type = "text", @placeholder = "Hastanın Ödeyeceği tutar", @required = "", @maxlength = "50", @readonly = "readonly" })
+                @Html.Hidden("ilactutar", tutar)
+                @Html.Hidden("foricin", foricin)
+
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Ödeme Türü</span>
+                </div>
+                <p class="form-control">Nakit</p>   @Html.RadioButton("odemeTuru", "Nakit", new { @class = "form-control", @checked = "true" })
+                <p class="form-control">Kart</p> @Html.RadioButton("odemeTuru", "Kart", new { @class = "form-control", @id = "cbKart" })
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" id="btnMuayene" type="submit">İlaç ver</button>
+        }
+
+        <script>
+            $('#btnMuayene').click(function () {
+                alert('İlaç verme işlemi başarıyla gerçekleşti.')
+            });
+        </script>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,102 @@
+﻿@using Hastane.Models.Entity
+@model Hastane.Models.randevuList
+@{
+    ViewBag.Title = "HastaRandevuListele";
+    Layout = "~/Views/Shared/_LayoutDoktor.cshtml";
+    HastaneEntities2 hs = new HastaneEntities2();
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Index", "Doktor")</li>
+        <li class="active">/Randevu alan hastalar</li>
+    </ol>
+    @if (Session["hatalitarih"].ToString() == "true")
+    {
+        <p style="color:red">Tarih bilgilerini yanlış girdiniz! Muayene işlemi gerçekleşemedi.</p>
+    }
+
+
+    <div class="row">
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Adı
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.adsyad)</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Tarih
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    string tarih = hasta.tarih.ToString();
+                    string[] dizi = tarih.Split(' ');
+                    string tut = dizi[0];
+                    <a href="#" class="list-group-item list-group-item-action">@tut</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Saat
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.saat1.saatzaman)</a>
+                }
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Hasta Detay
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    @Html.ActionLink("Detay", "HastaDetay", "Doktor", new { hastaID = hasta.hastaid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+        <div class="col-md-3">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Muayene İşlemleri
+                </a>
+                @foreach (var hasta in Model.randevuListesi)
+                {
+                    var muayene = hs.muayene.Where(x => x.randevuid == hasta.randevuid).FirstOrDefault();
+                    if (muayene == null)
+                    {
+                        @Html.ActionLink("Hasta Muayene", "Hastamuayene", "Doktor", new { hastaID = hasta.hastaid, randevuID = hasta.randevuid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Muayene İşlemi Gerçekleştirildi", "HastaRandevuListele", "Doktor", "", new { @class = "list-group-item list-group-item-action list-group-item-danger active" })
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    @ViewBag.randevuYok
+</div>
+
+

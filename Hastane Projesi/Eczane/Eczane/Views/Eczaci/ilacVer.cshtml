@@ -1,0 +1,109 @@
+﻿@using Eczane.Models.Entity;
+@model List<recete>
+@{
+    ViewBag.Title = "HastaCikis";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">İlaç Ver</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Anasayfa", "Eczaci")</li>
+        <li class="active">/İlaç Ver</li>
+    </ol>
+
+    <div class="col-md-12 col-sm-8">
+        @using (Html.BeginForm("ilacVer", "Eczaci", FormMethod.Get))
+        {
+            <p>
+                Reçete Kodu: @Html.TextBox("recetekodu")
+                <input type="submit" value="Ara" />
+            </p>
+        }
+        @using (Html.BeginForm("ilacVer", "Eczaci", FormMethod.Get))
+        {
+            <p>
+                TC ile ara: @Html.TextBox("hastatc")
+                <input type="submit" value="Ara" />
+            </p>
+        }
+        @using (Html.BeginForm("ilacVer", "Eczaci", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-md-2">
+
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                            Hasta Adı
+                        </a>
+                        @foreach (var hasta in Model)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.hastaad)</a>
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+
+                    <div class="list-group" align="justify">
+
+                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                            Hasta TC
+                        </a>
+                        @foreach (var hasta in Model)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.hastatc)</a>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-2">
+
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                            Reçete Kodu
+                        </a>
+                        @foreach (var hasta in Model)
+                        {
+                            <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => hasta.recetekodu)</a>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-2">
+
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                            İlaç Ver
+                        </a>
+                        @foreach (var hasta in Model)
+                        {
+                            if (hasta.ilacVerildiMi.ToString() == "0")
+                            {
+                                @Html.ActionLink("İlaç Ver", "ilacVerOnay", "Eczaci", new { receteID = hasta.receteid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("İlaç Verildi", "ilacVer", "Eczaci", new { receteID = hasta.receteid }, new { @class = "list-group-item list-group-item-action list-group-item-danger active" })
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            if (Model.Count == 0)
+            {
+                <br />
+                <p style="color:red">Kayıt Bulunamadı</p>
+            }
+
+        }
+    </div>
+</div>

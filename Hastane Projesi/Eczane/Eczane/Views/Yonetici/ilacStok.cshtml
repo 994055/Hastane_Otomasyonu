@@ -1,0 +1,89 @@
+﻿@using Eczane.Models.Entity;
+@model List<ilac> 
+
+@{
+    ViewBag.Title = "İlaçEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Anasayfa", "Eczaci")</li>
+        <li class="active">/ilaçlar</li>
+    </ol>
+
+    <div class="row">
+        @using (Html.BeginForm("ilacStok", "Yonetici", FormMethod.Get))
+        {
+            <p>
+                İlaç barkodu ile ara: @Html.TextBox("ilac_barkod")
+                <input type="submit" value="Ara" />
+            </p>
+        }
+        @using (Html.BeginForm("ilacStok", "Yonetici", FormMethod.Get))
+        {
+            <p>
+                İlaç adı ile ara: @Html.TextBox("ilac_ad")
+                <input type="submit" value="Ara" />
+            </p>
+        }
+        <div class="col-md-5">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İlaç İsmi
+                </a>
+                @foreach (var ilac in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => ilac.ilac_ad)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Barkod
+                </a>
+                @foreach (var ilac in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => ilac.ilac_barkod)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İlaç Adeti
+                </a>
+                @foreach (var ilac in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => ilac.ilacadet)</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Stok Ekle
+                </a>
+                @foreach (var ilac in Model)
+                {
+                    @Html.ActionLink("İlaç stok ekle", "ilacStokEkle", "Yonetici", new { ilacID = ilac.ilac_id }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

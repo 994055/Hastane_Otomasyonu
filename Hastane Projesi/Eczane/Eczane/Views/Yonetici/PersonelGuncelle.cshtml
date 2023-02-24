@@ -1,0 +1,165 @@
+﻿@using Eczane.Models.Entity;
+@model Eczane.Models.personelList
+@{
+    ViewBag.Title = "personelBilgiler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    eczaneEntities ec = new eczaneEntities();
+}
+
+
+<div class="section-header">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Personel Güncelle</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container container-int">
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa/", "Anasayfa", "Eczaci")</li>
+        <li>@Html.ActionLink("Personeller", "PersonelListele", "Yonetici")</li>
+        <li class="active">/Personel Güncelle</li>
+    </ol>
+    <div class="col-md-12 col-sm-8">
+
+        <p style="color:red">@ViewBag.Hata</p>
+
+        @using (Html.BeginForm("PersonelGuncelle", "Yonetici", FormMethod.Post))
+        {
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Ad</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("ad", personel.ad, new { @class = "form-control", @type = "text", @placeholder = "İsim Giriniz", @required = "", @maxlength = "50", @id = "ad" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Soyad</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("soyad", personel.soyad, new { @class = "form-control", @type = "text", @placeholder = "Soyad Giriniz", @required = "", @maxlength = "50", @id = "soyad" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">TC</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("tc", personel.tc, new { @class = "form-control", @type = "number", @placeholder = "TC Giriniz", @required = "", @onKeyPress = "if(this.value.length==11) return false;", @id = "tc" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Email</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    var kullanici = ec.kullanici_yetki.Where(x => x.personel_id == personel.personelid).FirstOrDefault();
+                    @Html.TextBox("email", kullanici.kullanici_email, new { @class = "form-control", @type = "text", @placeholder = "Diploma No Giriniz", @required = "", @maxlength = "250", @id = "email" })
+
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Şifre</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    var kullanici = ec.kullanici_yetki.Where(x => x.personel_id == personel.personelid).FirstOrDefault();
+                    @Html.TextBox("sifre", kullanici.kullanici_sifre, new { @class = "form-control", @type = "text", @placeholder = "Diploma No Giriniz", @required = "", @maxlength = "250", @id = "sifre" })
+
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Cep Telefonu</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("ceptel", personel.ceptel, new { @class = "form-control", @type = "number", @placeholder = "Ceptel Giriniz", @required = "", @onKeyPress = "if(this.value.length==11) return false;", @id = "ceptel" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Adres</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("adres", personel.adres, new { @class = "form-control", @type = "text", @placeholder = "Ceptel Giriniz", @required = "", @maxlength = "250", @id = "adres" })
+                }
+            </div>
+
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Doğum Tarihi</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    string tarihtut = personel.dtarih.ToString();
+                    var dizi = tarihtut.Split(' ');
+                    @Html.TextBox("dtarih", dizi[0], new { @class = "form-control", @type = "text", @placeholder = "Branş Giriniz", @required = "", @maxlength = "11" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Cinsiyet</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("cinsiyet", personel.cinsiyet, new { @class = "form-control", @type = "text", @placeholder = "Cinsiyet Giriniz", @required = "", @maxlength = "5", @id = "cinsiyet" })
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Mezuniyet</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("mezuniyet", personel.mezuniyet, new { @class = "form-control", @type = "text", @placeholder = "Diploma No Giriniz", @required = "", @maxlength = "250", @id = "mezuniyet" })
+
+                }
+            </div>
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:150px">Diploma No</span>
+                </div>
+                @foreach (var personel in Model.personelListesi)
+                {
+                    @Html.TextBox("diplomano", personel.diplomano, new { @class = "form-control", @type = "number", @placeholder = "Diploma No Giriniz", @required = "", @maxlength = "250", @id = "diplomano" })
+                    @Html.Hidden("personelID", personel.personelid)
+                }
+            </div>
+
+
+            <button class="btn btn-lg btn-primary btn-block" id="btnguncelle" type="submit">Güncelle</button>
+            <script>
+                $('#btnguncelle').click(function () {
+
+                    if ($.trim($("#adres").val()) != "" && $.trim($("#ad").val()) != "" && $.trim($("#soyad").val()) != "" && $.trim($("#tc").val()) != "" && $.trim($("#dtarih").val()) != ""
+                        && $.trim($("#cinsiyet").val()) != "" && $.trim($("#ceptel").val()) != ""
+                        && $.trim($("#email").val()) != "" && $.trim($("#sifre").val()) != "") {
+                        alert('Bilgileriniz başarıyla güncellendi.')
+                    }
+                });
+            </script>
+
+
+
+        }
+
+
+
+
+    </div>
+</div>
+

@@ -1,0 +1,100 @@
+﻿@using Eczane.Models.Entity
+@model List<personel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container container-int">
+
+    <ol class="breadcrumb">
+        <li>@Html.ActionLink("Anasayfa", "Anasayfa", "Eczaci")</li>
+        <li class="active">/Personeller</li>
+    </ol>
+    @using (Html.BeginForm("PersonelListele", "Yonetici", FormMethod.Get))
+    {
+        <p>
+            Personel Adı ara: @Html.TextBox("personelad")
+            <input type="submit" value="Ara" />
+        </p>
+    }
+    @using (Html.BeginForm("PersonelListele", "Yonetici", FormMethod.Get))
+    {
+        <p>
+            TC ile ara: @Html.TextBox("personeltc")
+            <input type="submit" value="Ara" />
+        </p>
+    }
+    <div class="row">
+
+        <div class="col-md-2">
+
+            <div class="list-group" align="justify">
+
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İsim
+                </a>
+                @foreach (var personel in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.ad) @Html.DisplayFor(modelItem => personel.soyad)</a>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    TC
+                </a>
+                @foreach (var personel in Model)
+                {
+                    <a href="#" class="list-group-item list-group-item-action">@Html.DisplayFor(modelItem => personel.tc)</a>
+                }
+            </div>
+        </div>
+
+
+
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Detay
+                </a>
+                @foreach (var personel in Model)
+                {
+                    @Html.ActionLink("Detay", "PersonelDetay", "Yonetici", new { personelID = personel.personelid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Bilgilerini Güncelle
+                </a>
+                @foreach (var personel in Model)
+                {
+                    @Html.ActionLink("Güncelle", "PersonelGuncelle", "Yonetici", new { personelID = personel.personelid }, new { @class = "list-group-item list-group-item-action list-group-item-success active" })
+                }
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    İşten Çıkar
+                </a>
+                @foreach (var personel in Model)
+                {
+                    @Html.ActionLink("Çıkar", "PersonelCikar", "Yonetici", new { personelID = personel.personelid }, new { @class = "list-group-item list-group-item-action list-group-item-danger active", @onclick = "return confirm('Personeli işten çıkarmak istediğinize emin misiniz? ')" })
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
