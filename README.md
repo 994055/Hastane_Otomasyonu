@@ -8,3 +8,5 @@ Eczane otomasyonu, muayene edilen hastaya verilen reçete kodu ile reçetede bul
 ![image](https://user-images.githubusercontent.com/72862906/221167509-941ee643-e9a7-4238-a09f-d0e2d0ec23ca.png)
 
 Hastane otomasyonu, genel olarak sistem üzerinden hasta randevu alma işlemi ve doktor muayene işlemi gibi faaliyetler gerçekleştirmeyi hedefler. Sistem üzerinde hastane yönetimi tarafından personel ekleme, silme ve izin kontrolü faaliyetleri gerçekleştirilecek. Doktor muayenesi sonucunda hastaneden hastaya verilmiş olan ilaçların temin edilmesi için Eczane otomasyonu da yapılacak. Hastane ve eczane otomasyonu arasında veri alışverişi Web Service üzerinden gerçekleştirilecek.
+
+Not: Projede veri tabanı olarak Microsoft SQL Server kullanılmıştır.
